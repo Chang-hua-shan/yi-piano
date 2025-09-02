@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Eclipse
+*.log
+*.ini
+.settings/
+.metadata/
+
+# Node.js
+node_modules/
+
+# Build / Dist
+dist/
+build/

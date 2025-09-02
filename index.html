@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yipiano Studio</title>
+  <meta name="description" content="
+  Yi Piano · 讓音符成為心靈的語言
+
+  Yi Piano · 讓旋律化作永恆的詩篇
+  
+  Yi Piano · 讓琴聲點亮夢想的明天
+  
+  Yi Piano · 讓樂音陪你走過每一天
+  
+  Yi Piano · 讓音符譜寫最動人的詩篇
+  " />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500&family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
+
+  <!-- OG Meta 標籤 -->
+  <meta property="og:title" content="Yi Piano · 讓琴聲點亮夢想的明天" />
+  <meta property="og:description" content="不論是初學者，還是想要精進的你，這裡都有專屬的課程。" />
+  <meta property="og:image" content="https://kaoriart.com/jpg/不凋花課程照片.jpg" />
+  <meta property="og:url" content="https://kaoriart.com" />
+</head>
+<body>
+  <!-- 導覽列 -->
+  <header class="header">
+    <div class="header-inner">
+      <h1 class="logo">Yipiano Studio</h1>
+      <nav>
+        <div class="menu-toggle" tabindex="0" aria-label="切換選單">☰</div>
+        <ul class="menu">
+          <li><a href="#teacher">教師介紹</a></li>
+          <li><a href="class.html#class">課程介紹</a></li>
+          <li><a href="#flower">成果發表？</a></li>
+          <li><a href="" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://lin.ee/jFRuR9p" target="_blank" rel="noopener">LINE</a></li>
+          <li><a href="https://www.instagram.com/yi_piano_studio?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- 首圖與簡介 -->
+    <img src="jpg/不凋花課程照片.jpg" alt="Kaori Artstudio 不凋花課程展示" class="course-image" />
+    <p class="course-description">
+      Yi Piano · 讓琴聲點亮夢想的明天。<br />
+      適合任何年齡，無需經驗，輕鬆學習。
+    </p>
+
+    <!-- 不凋花介紹 -->
+    <section class="section" id="flower">
+      <h2></h2>
+      <p>
+        鋼琴課程簡介
+      </p>
+    </section>
+
+    <!-- 教師介紹 -->
+    <section class="section" id="teacher">
+      <h2>教師介紹</h2>
+      <p>
+        40年教學經驗<br />
+      </p>
+    </section>
+
+    <!-- 課程介紹 -->
+    <section class="section" id="course">
+      <h2>課程介紹</h2>
+      <div class="course-grid">
+        <a href="class.html" class="course-card">
+          <img src="jpg/壓克力燈花球.jpg" alt="成人鋼琴" />
+          <h3>成人鋼琴</h3>        
+        </a>
+       
+      </div>
+      <div class="more-center">
+        <a class="more-button" href="class.html">查看更多課程</a>
+        <a class="form-button" href="https://docs.google.com/forms/你的表單連結" target="_blank">點我報名</a>
+      </div>
+    </section>
+
+    <!-- 學員作品集 -->
+    <section class="section" id="works">
+      <h2>成果發表</h2>
+      <div class="gallery">
+        <a href="jpg/學員作品1.jpg" class="lightbox-link">
+          <img src="jpg/學員作品1.jpg" alt="作品1" />
+        </a>
+      </div>
+      <div class="more-center">
+        <a class="more-button" href="work.html">點我看更多</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="social-icons">
+        <a href="" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_(2019).png" alt="Facebook" />
+        </a>
+        <a href="https://lin.ee/jFRuR9p" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" alt="LINE" />
+        </a>
+        <a href="https://www.instagram.com/yi_piano_studio?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" />
+        </a>
+      </div>
+      <p class="copyright">© 2025 Yipiano Studio.</p>
+      <div class="contact-info">
+        <p>Email：kaoriart@example.com</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox-overlay" id="lightbox">
+    <img src="" alt="放大圖片" id="lightbox-img" />
+  </div>
+
+  <!-- JS 功能 -->
+  <script>
+    // === Lightbox 功能 ===
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const links = document.querySelectorAll('.lightbox-link');
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const imgSrc = link.getAttribute('href');
+        lightboxImg.src = imgSrc;
+        lightbox.style.display = 'flex';
+      });
+    });
+    lightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+
+    // === 手機漢堡選單功能修正 ===
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation(); // 防止點擊漢堡時被 document click 捕捉
+      menu.classList.toggle('active');
+    });
+
+    // 點擊選單連結時自動收起
+    menu.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') menu.classList.remove('active');
+    });
+
+    // 點擊頁面其他地方收起選單
+    document.addEventListener('click', (e) => {
+      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+        menu.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>
