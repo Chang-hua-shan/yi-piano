@@ -16,3 +16,10 @@ node_modules/
 # Build / Dist
 dist/
 build/
+# macOS 系統檔
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# 個人家目錄相關 (避免誤抓上層)
+../*
