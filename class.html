@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>課程總覽｜Yi Piano Studio｜台北鋼琴教學・長笛課程</title>
+  <meta name="description" content="Yi Piano Studio 課程總覽：兒童鋼琴、成人鋼琴、長笛初學與進階、伴奏/舞台訓練。提供一對一與小班制，適合初學者與進階學員。" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500&family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
+
+  <!-- OG Meta（請替換為你的實際網址與圖片） -->
+  <meta property="og:title" content="課程總覽｜Yi Piano Studio" />
+  <meta property="og:description" content="鋼琴與長笛一對一/小班教學，兒童到成人皆適合，檢定、比賽、伴奏指導。" />
+  <meta property="og:image" content="https://你的網域/img/og-music.jpg" />
+  <meta property="og:url" content="https://你的網域/class.html" />
+
+  <!-- JSON-LD 結構化資料（可加強 SEO，可留著待你補充聯絡資訊） -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicSchool",
+    "name": "Yi Piano Studio",
+    "url": "https://你的網域/",
+    "areaServed": "Taipei",
+    "hasCourse": [
+      {"@type":"Course","name":"兒童鋼琴課","description":"基礎指法與節奏、視譜啟蒙，建立樂感。"},
+      {"@type":"Course","name":"成人鋼琴課","description":"依興趣/檢定/比賽客製化目標與曲目。"},
+      {"@type":"Course","name":"長笛課程（初學/進階）","description":"口型氣息、音色控制、合奏協作。"},
+      {"@type":"Course","name":"伴奏與舞台訓練","description":"舞台禮儀、合作默契、臨場表現與詮釋。"}
+    ]
+  }
+  </script>
+  <style>
+    /* ====== class.html 專用的少量樣式（其餘沿用 style.css） ====== */
+    .page-hero { text-align:center; margin: 18px 0 10px; }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 0 0 6px; }
+    .breadcrumb { text-align:center; font-size: .9rem; color:#666; margin-bottom: 16px; }
+
+    .filters { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin: 10px 0 18px; }
+    .filter-btn { border:1px solid #ddd; background:#fff; padding:8px 12px; border-radius:999px; font-size:.92rem; cursor:pointer; }
+    .filter-btn.active { border-color:#333; }
+
+    /* 課程網格：與 index 同步邏輯，手機 2 欄 / 平板 3 欄 / 桌機 4 欄 */
+    .course-grid { display:grid; grid-template-columns: repeat(2, 1fr); gap:14px; }
+    @media (min-width: 768px){ .course-grid{ grid-template-columns: repeat(3, 1fr); gap:16px; } }
+    @media (min-width: 1024px){ .course-grid{ grid-template-columns: repeat(4, 1fr); gap:18px; } }
+
+    .course-card{ display:block; border-radius:14px; overflow:hidden; text-decoration:none; background:#fff; box-shadow:0 6px 18px rgba(0,0,0,.06); transition:transform .18s ease, box-shadow .18s ease; }
+    .course-card:hover{ transform: translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,.10); }
+    .course-card img{ width:100%; height:160px; object-fit:cover; display:block; }
+    .course-card h3{ margin:10px 12px 4px; font-size:1rem; }
+    .course-card p{ margin:0 12px 12px; font-size:.92rem; color:#555; }
+
+    .badge { display:inline-block; margin:0 12px 12px; font-size:.8rem; color:#444; background:#f3f3f3; padding:4px 8px; border-radius:8px; }
+  </style>
+</head>
+<body>
+  <!-- Header（沿用全站樣式與結構） -->
+  <header class="header">
+    <div class="header-inner">
+      <h1 class="logo"><a href="index.html">Yi Piano Studio</a></h1>
+      <nav>
+        <button class="menu-toggle" type="button" aria-label="切換選單" aria-controls="site-menu" aria-expanded="false">☰</button>
+        <ul class="menu" id="site-menu">
+          <li><a href="index.html#about">關於我們</a></li>
+          <li><a href="class.html">課程介紹</a></li>
+          <li><a href="index.html#teacher">師資介紹</a></li>
+          <li><a href="works.html">學員成果</a></li>
+          <li><a href="index.html#contact">聯絡/報名</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="page-hero">
+      <h1>課程總覽</h1>
+      <div class="breadcrumb">首頁 / 課程總覽</div>
+    </div>
+
+    <!-- 篩選器 -->
+    <div class="filters" role="toolbar" aria-label="課程篩選">
+      <button class="filter-btn active" data-filter="all">全部</button>
+      <button class="filter-btn" data-filter="piano">鋼琴</button>
+      <button class="filter-btn" data-filter="flute">長笛</button>
+      <button class="filter-btn" data-filter="stage">伴奏/舞台</button>
+      <button class="filter-btn" data-filter="exam">檢定/比賽</button>
+    </div>
+
+    <!-- 課程清單 -->
+    <section class="section" id="class">
+      <div class="course-grid" id="courseGrid">
+        <!-- 兒童鋼琴 -->
+        <a href="courses/piano-kids.html" class="course-card" data-category="piano exam">
+          <img src="img/course-piano-kids.jpg" alt="兒童鋼琴課：基礎指法、節奏、視譜啟蒙" loading="lazy" decoding="async" />
+          <h3>兒童鋼琴課（4–12 歲）</h3>
+          <p>打好基礎，從遊戲中培養樂感與專注力。</p>
+          <span class="badge">一對一/小班</span>
+        </a>
+        <!-- 成人鋼琴 -->
+        <a href="courses/piano-adult.html" class="course-card" data-category="piano exam">
+          <img src="img/course-piano-adult.jpg" alt="成人鋼琴課：客製曲目與進度，檢定/比賽/伴奏指導" loading="lazy" decoding="async" />
+          <h3>成人鋼琴課（13+）</h3>
+          <p>依興趣或目標客製化，紓壓、表演、檢定都適合。</p>
+          <span class="badge">客製化進度</span>
+        </a>
+        <!-- 長笛 初學/進階 -->
+        <a href="courses/flute.html" class="course-card" data-category="flute stage exam">
+          <img src="img/course-flute.jpg" alt="長笛課程：口型氣息與音色控制，合奏與協作" loading="lazy" decoding="async" />
+          <h3>長笛課程（初學/進階）</h3>
+          <p>氣息與發音、音準音色、重奏合奏與舞台表現。</p>
+          <span class="badge">個別/重奏</span>
+        </a>
+        <!-- 伴奏與舞台訓練 -->
+        <a href="courses/accompaniment-stage.html" class="course-card" data-category="stage">
+          <img src="img/course-stage.jpg" alt="伴奏與舞台訓練：演出禮儀、合作默契、臨場應對" loading="lazy" decoding="async" />
+          <h3>伴奏與舞台訓練</h3>
+          <p>排練策略、合作默契與台風，強化整體演出力。</p>
+          <span class="badge">演出實戰</span>
+        </a>
+        <!-- 視唱聽寫/樂理 -->
+        <a href="courses/musictheory.html" class="course-card" data-category="exam piano flute">
+          <img src="img/course-theory.jpg" alt="視唱聽寫與樂理：節奏、和聲、曲式基礎" loading="lazy" decoding="async" />
+          <h3>視唱聽寫｜樂理基礎</h3>
+          <p>節奏/旋律訓練、和聲與曲式，檢定比賽加分。</p>
+          <span class="badge">檢定輔導</span>
+        </a>
+        <!-- 合奏/室內樂 -->
+        <a href="courses/ensemble.html" class="course-card" data-category="stage flute piano">
+          <img src="img/course-ensemble.jpg" alt="合奏/室內樂：重奏編制、合作與溝通" loading="lazy" decoding="async" />
+          <h3>合奏/室內樂訓練</h3>
+          <p>重奏編制與分工，提升聽力與音樂互動性。</p>
+          <span class="badge">合作/互動</span>
+        </a>
+        <!-- 速成/短期目標 -->
+        <a href="courses/bootcamp.html" class="course-card" data-category="piano flute exam">
+          <img src="img/course-bootcamp.jpg" alt="短期衝刺課：演出前暖身、檢定衝刺" loading="lazy" decoding="async" />
+          <h3>短期衝刺｜密集特訓</h3>
+          <p>演出前暖身、檢定衝刺、指定曲目快攻。</p>
+          <span class="badge">短期方案</span>
+        </a>
+        <!-- 兒童啟蒙音樂律動 -->
+        <a href="courses/eurhythmics.html" class="course-card" data-category="piano">
+          <img src="img/course-eurhythmics.jpg" alt="兒童音樂律動：節奏感與肢體協調啟蒙" loading="lazy" decoding="async" />
+          <h3>兒童音樂律動</h3>
+          <p>用律動與遊戲建立節奏感與專注力的根基。</p>
+          <span class="badge">4–7 歲</span>
+        </a>
+      </div>
+    </section>
+
+    <div class="more-center" style="margin-top:18px">
+      <a class="form-button" href="https://docs.google.com/forms/你的表單連結" target="_blank" rel="noopener">預約體驗/報名</a>
+      <a class="more-button" href="index.html#contact">聯絡我們</a>
+    </div>
+  </main>
+
+  <!-- footer（沿用全站） -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="social-icons">
+        <a href="https://www.facebook.com/你的粉專" target="_blank" rel="noopener">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_(2019).png" alt="Facebook" />
+        </a>
+        <a href="https://line.me/ti/p/你的LINE_ID" target="_blank" rel="noopener">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" alt="LINE" />
+        </a>
+        <a href="https://www.instagram.com/你的IG" target="_blank" rel="noopener">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" />
+        </a>
+      </div>
+      <p class="copyright">© 2025 Yi Piano Studio.</p>
+      <div class="contact-info">
+        <p>Email：contact@yipiano.example.com</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS：沿用你的漢堡選單 + 本頁的簡易篩選器 -->
+  <script>
+    /* === 漢堡選單（沿用 index.html 的寫法） === */
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.getElementById('site-menu');
+    function openMenu(){ menu.classList.add('open'); document.body.classList.add('nav-open'); toggle.setAttribute('aria-expanded','true'); }
+    function closeMenu(){ menu.classList.remove('open'); document.body.classList.remove('nav-open'); toggle.setAttribute('aria-expanded','false'); }
+    function toggleMenu(e){ e?.stopPropagation(); menu.classList.contains('open') ? closeMenu() : openMenu(); }
+    if (toggle && menu){
+      toggle.addEventListener('click', toggleMenu);
+      toggle.addEventListener('keydown', (e)=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggleMenu(e);} if(e.key==='Escape') closeMenu(); });
+      menu.addEventListener('click', (e)=>{ if(e.target.closest('a')) closeMenu(); });
+      document.addEventListener('click', (e)=>{ if(!menu.contains(e.target) && !toggle.contains(e.target)) closeMenu(); });
+      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeMenu(); });
+    }
+
+    /* === 簡易篩選器：依 data-category 過濾（不影響其他頁） === */
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.course-card');
+    filterBtns.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        filterBtns.forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        const key = btn.dataset.filter;
+        cards.forEach(card=>{
+          if(key==='all'){ card.style.display='block'; return; }
+          const cats = (card.dataset.category||'').split(/\s+/);
+          card.style.display = cats.includes(key) ? 'block' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
