@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>學員成果｜Yi's Piano Studio｜鋼琴・長笛教學</title>
+  <meta name="description" content="Yi's Piano Studio 學員成果照片：檢定合格、舞台演出、日常練習與發表會。">
+
+  <!-- 共用 CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- 字體（跟首頁一樣） -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500&family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Header：沿用全站 -->
+  <header class="header">
+    <div class="header-inner">
+      <h1 class="logo"><a href="index.html">Yi's Piano Studio</a></h1>
+      <nav>
+        <button class="menu-toggle" type="button" aria-label="切換選單" aria-controls="site-menu" aria-expanded="false">☰</button>
+        <ul class="menu" id="site-menu">
+          <li><a href="index.html#about">關於我們</a></li>
+          <li><a href="class.html">課程介紹</a></li>
+          <li><a href="index.html#teacher">師資介紹</a></li>
+          <li><a href="works.html">學員成果</a></li>
+          <li><a href="index.html#contact">聯絡／報名</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section" id="works-page">
+      <h2>學員成果</h2>
+      <p>
+        這裡紀錄了 Yi's Piano Studio 學員們的練習日常、檢定合格證書、舞台演出與發表會照片。<br/>
+        每一張照片都是努力累積的成果，也是我們最珍惜的回憶。
+      </p>
+
+      <!-- 照片牆：沿用原本 .gallery 樣式 -->
+      <div class="gallery">
+        <!-- 你可以依照自己資料夾路徑替換下列圖片 -->
+
+        <!-- 檢定／證書 -->
+        <a href="img/works/cert_01.jpg" class="lightbox-link">
+          <img src="img/works/cert_01.jpg" alt="學員檢定合格證書">
+        </a>
+        <a href="img/works/cert_02.jpg" class="lightbox-link">
+          <img src="img/works/cert_02.jpg" alt="學員檢定通過紀錄">
+        </a>
+
+        <!-- 舞台演出 -->
+        <a href="img/works/stage_01.jpg" class="lightbox-link">
+          <img src="img/works/stage_01.jpg" alt="學員舞台演出照片 1">
+        </a>
+        <a href="img/works/stage_02.jpg" class="lightbox-link">
+          <img src="img/works/stage_02.jpg" alt="學員舞台演出照片 2">
+        </a>
+
+        <!-- 日常練習／工作室生活 -->
+        <a href="img/works/daily_01.jpg" class="lightbox-link">
+          <img src="img/works/daily_01.jpg" alt="學員上課練習照片">
+        </a>
+        <a href="img/works/daily_02.jpg" class="lightbox-link">
+          <img src="img/works/daily_02.jpg" alt="教室練習日常照片">
+        </a>
+
+        <!-- 想再加就繼續複製這個區塊 -->
+        <!--
+        <a href="img/works/xxx.jpg" class="lightbox-link">
+          <img src="img/works/xxx.jpg" alt="說明文字">
+        </a>
+        -->
+      </div>
+
+      <div class="more-center" style="margin-top: 24px;">
+        <a class="more-button" href="index.html#contact">我要詢問課程</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- footer：沿用全站 -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="social-icons">
+        <a href="https://www.facebook.com/share/1AhJe3KQd9/?mibextid=wwXIfr" target="_blank" rel="noopener">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_(2019).png" alt="Facebook" />
+        </a>
+        <a href="https://lin.ee/8Av6giM" target="_blank" rel="noopener">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" alt="LINE" />
+        </a>
+        <a href="https://www.instagram.com/yi_piano_studio?igsh=cG5xcm02cXdieGZv" target="_blank" rel="noopener">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" />
+        </a>
+      </div>
+      <p class="copyright">© 2025 Yi's Piano Studio.</p>
+      <div class="contact-info">
+        <p>Email：rabbit41120@gmail.com</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox：沿用首頁 JS -->
+  <div class="lightbox-overlay" id="lightbox" aria-hidden="true">
+    <img src="" alt="放大圖片" id="lightbox-img" />
+  </div>
+
+  <script>
+    /* === Lightbox === */
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const links = document.querySelectorAll('.lightbox-link');
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        lightboxImg.src = link.getAttribute('href');
+        lightbox.style.display = 'flex';
+        lightbox.setAttribute('aria-hidden', 'false');
+      });
+    });
+    lightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+      lightbox.setAttribute('aria-hidden', 'true');
+    });
+
+    /* === 漢堡選單：跟 index.html 一樣 === */
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.getElementById('site-menu');
+    function openMenu(){ menu.classList.add('open'); document.body.classList.add('nav-open'); toggle.setAttribute('aria-expanded','true'); }
+    function closeMenu(){ menu.classList.remove('open'); document.body.classList.remove('nav-open'); toggle.setAttribute('aria-expanded','false'); }
+    function toggleMenu(e){ e?.stopPropagation(); menu.classList.contains('open') ? closeMenu() : openMenu(); }
+    if (toggle && menu){
+      toggle.addEventListener('click', toggleMenu);
+      toggle.addEventListener('keydown', (e)=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggleMenu(e);} if(e.key==='Escape') closeMenu(); });
+      menu.addEventListener('click', (e)=>{ if(e.target.closest('a')) closeMenu(); });
+      document.addEventListener('click', (e)=>{ if(!menu.contains(e.target) && !toggle.contains(e.target)) closeMenu(); });
+      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeMenu(); });
+    }
+  </script>
+</body>
+</html>

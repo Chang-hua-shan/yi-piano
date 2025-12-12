@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>課程總覽｜Yi Piano Studio｜台北鋼琴教學・長笛課程</title>
+  <title>課程總覽｜Yi's Piano Studio｜台北鋼琴教學・長笛課程</title>
   <meta name="description" content="Yi Piano Studio 課程總覽：兒童鋼琴、成人鋼琴、長笛初學與進階、伴奏/舞台訓練。提供一對一與小班制，適合初學者與進階學員。" />
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500&family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@500;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
 
   <!-- OG Meta（請替換為你的實際網址與圖片） -->
-  <meta property="og:title" content="課程總覽｜Yi Piano Studio" />
+  <meta property="og:title" content="課程總覽｜Yi's Piano Studio" />
   <meta property="og:description" content="鋼琴與長笛一對一/小班教學，兒童到成人皆適合，檢定、比賽、伴奏指導。" />
   <meta property="og:image" content="https://你的網域/img/og-music.jpg" />
   <meta property="og:url" content="https://你的網域/class.html" />
@@ -19,7 +19,7 @@
   {
     "@context": "https://schema.org",
     "@type": "MusicSchool",
-    "name": "Yi Piano Studio",
+    "name": "Yi's Piano Studio",
     "url": "https://你的網域/",
     "areaServed": "Taipei",
     "hasCourse": [
@@ -52,13 +52,19 @@
     .course-card p{ margin:0 12px 12px; font-size:.92rem; color:#555; }
 
     .badge { display:inline-block; margin:0 12px 12px; font-size:.8rem; color:#444; background:#f3f3f3; padding:4px 8px; border-radius:8px; }
+
+    /* 分頁控制 */
+    .pagination { display:flex; gap:10px; align-items:center; justify-content:center; margin:14px 0 4px; flex-wrap:wrap; }
+    .page-button { border:1px solid #ddd; background:#fff; padding:8px 12px; border-radius:10px; cursor:pointer; min-width:90px; }
+    .page-button:disabled { opacity:.45; cursor:not-allowed; }
+    .page-info { font-size:.95rem; color:#444; }
   </style>
 </head>
 <body>
   <!-- Header（沿用全站樣式與結構） -->
   <header class="header">
     <div class="header-inner">
-      <h1 class="logo"><a href="index.html">Yi Piano Studio</a></h1>
+      <h1 class="logo"><a href="index.html">Yi's Piano Studio</a></h1>
       <nav>
         <button class="menu-toggle" type="button" aria-label="切換選單" aria-controls="site-menu" aria-expanded="false">☰</button>
         <ul class="menu" id="site-menu">
@@ -73,10 +79,12 @@
   </header>
 
   <main class="container">
-    <div class="page-hero">
-      <h1>課程總覽</h1>
-      <div class="breadcrumb">首頁 / 課程總覽</div>
-    </div>
+      <div class="page-hero">
+         <h1>課程總覽</h1>
+         <p style="margin-top:8px; font-size:0.95rem; color:#555;">
+         依照年齡、程度與目標，選擇最適合你的課程。如不確定，可先預約體驗課，由老師協助評估。
+      </p>
+      </div>
 
     <!-- 篩選器 -->
     <div class="filters" role="toolbar" aria-label="課程篩選">
@@ -147,10 +155,17 @@
           <span class="badge">4–7 歲</span>
         </a>
       </div>
+
+      <!-- 分頁 -->
+      <div class="pagination" id="pagination" aria-label="課程分頁" aria-live="polite">
+        <button class="page-button" type="button" id="prevPage" aria-label="上一頁">‹ 上一頁</button>
+        <span class="page-info" id="pageInfo">第 1 / 1 頁</span>
+        <button class="page-button" type="button" id="nextPage" aria-label="下一頁">下一頁 ›</button>
+      </div>
     </section>
 
     <div class="more-center" style="margin-top:18px">
-      <a class="form-button" href="https://docs.google.com/forms/你的表單連結" target="_blank" rel="noopener">預約體驗/報名</a>
+      <a class="form-button" href="https://forms.gle/7nYWPPvNrmqvfxt59" target="_blank" rel="noopener">預約體驗/報名</a>
       <a class="more-button" href="index.html#contact">聯絡我們</a>
     </div>
   </main>
@@ -159,17 +174,17 @@
   <footer class="site-footer">
     <div class="footer-content">
       <div class="social-icons">
-        <a href="https://www.facebook.com/你的粉專" target="_blank" rel="noopener">
+        <a href="https://www.facebook.com/share/1AhJe3KQd9/?mibextid=wwXIfr" target="_blank" rel="noopener">
           <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_(2019).png" alt="Facebook" />
         </a>
-        <a href="https://line.me/ti/p/你的LINE_ID" target="_blank" rel="noopener">
+        <a href="https://lin.ee/8Av6giM" target="_blank" rel="noopener">
           <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" alt="LINE" />
         </a>
-        <a href="https://www.instagram.com/你的IG" target="_blank" rel="noopener">
+        <a href="https://www.instagram.com/yi_piano_studio?igsh=cG5xcm02cXdieGZv" target="_blank" rel="noopener">
           <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" />
         </a>
       </div>
-      <p class="copyright">© 2025 Yi Piano Studio.</p>
+      <p class="copyright">© 2025 Yi's Piano Studio.</p>
       <div class="contact-info">
         <p>Email：contact@yipiano.example.com</p>
       </div>
@@ -192,21 +207,68 @@
       document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeMenu(); });
     }
 
-    /* === 簡易篩選器：依 data-category 過濾（不影響其他頁） === */
+    /* === 篩選 + 分頁：依 data-category 過濾並每頁顯示固定數量 === */
     const filterBtns = document.querySelectorAll('.filter-btn');
-    const cards = document.querySelectorAll('.course-card');
-    filterBtns.forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        filterBtns.forEach(b=>b.classList.remove('active'));
+    const cards = Array.from(document.querySelectorAll('.course-card'));
+    const pagination = document.getElementById('pagination');
+    const prevBtn = document.getElementById('prevPage');
+    const nextBtn = document.getElementById('nextPage');
+    const pageInfo = document.getElementById('pageInfo');
+    const PAGE_SIZE = 6;
+    let currentFilter = 'all';
+    let currentPage = 1;
+
+    const matchesFilter = (card) => {
+      if (currentFilter === 'all') return true;
+      const cats = (card.dataset.category || '').split(/\s+/);
+      return cats.includes(currentFilter);
+    };
+
+    const render = () => {
+      const filtered = cards.filter(matchesFilter);
+      const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+      currentPage = Math.min(currentPage, totalPages);
+
+      // 重置顯示
+      cards.forEach(card => card.style.display = 'none');
+      const start = (currentPage - 1) * PAGE_SIZE;
+      filtered.slice(start, start + PAGE_SIZE).forEach(card => card.style.display = 'block');
+
+      // 更新分頁控制
+      if (pagination) {
+        pagination.style.display = totalPages > 1 ? 'flex' : 'none';
+        pageInfo.textContent = `第 ${currentPage} / ${totalPages} 頁`;
+        prevBtn.disabled = currentPage === 1;
+        nextBtn.disabled = currentPage === totalPages;
+      }
+    };
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        const key = btn.dataset.filter;
-        cards.forEach(card=>{
-          if(key==='all'){ card.style.display='block'; return; }
-          const cats = (card.dataset.category||'').split(/\s+/);
-          card.style.display = cats.includes(key) ? 'block' : 'none';
-        });
+        currentFilter = btn.dataset.filter;
+        currentPage = 1;
+        render();
       });
     });
+
+    prevBtn?.addEventListener('click', () => {
+      if (currentPage > 1) {
+        currentPage -= 1;
+        render();
+      }
+    });
+    nextBtn?.addEventListener('click', () => {
+      const filtered = cards.filter(matchesFilter);
+      const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+      if (currentPage < totalPages) {
+        currentPage += 1;
+        render();
+      }
+    });
+
+    render();
   </script>
 </body>
 </html>
