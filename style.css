@@ -12,19 +12,41 @@
   :root { --header-h: 56px; }
 }
 
-html, body {
+html {
   height: 100%;
   margin: 0;
   font-family: "Noto Sans TC", "Inter", sans-serif;
   background: var(--brand-bg);
   color: var(--brand-text);
+
+  /* iOS 避免字體自動放大造成版面跳動 */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+
+  box-sizing: border-box;
 }
 
-/* 讓主內容不被 fixed header 壓住 */
-body { padding-top: var(--header-h); }
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  font-family: inherit;
+  background: var(--brand-bg);
+  color: var(--brand-text);
+
+  /* 讓主內容不被 fixed header 壓住 */
+  padding-top: var(--header-h);
+
+  /* 防止某元素超出造成左右滑 */
+  overflow-x: hidden;
+}
 
 .container {
   flex: 1;
+  width: 100%;
   max-width: 900px;
   margin: 0 auto;
   padding: 0 20px 40px;
@@ -51,7 +73,6 @@ body { padding-top: var(--header-h); }
   border-bottom: 1px solid var(--brand-line);
   width: 100%;
   padding: 10px 20px;
-  box-sizing: border-box;
 }
 
 .header-inner {
@@ -95,21 +116,6 @@ nav { position: relative; }
 
 .menu li a:hover { color: var(--brand-main-dark); }
 
-/* === 師資照片（圓形） === */
-.teacher-photo-wrap {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.teacher-photo {
-  width: 180px;          /* 可依需求調整大小 */
-  height: 180px;
-  object-fit: cover;
-  border-radius: 50%;    /* 讓圖片變成圓形 */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-}
-
-
 /* === 漢堡按鈕（品牌版） === */
 .menu-toggle {
   display: none;
@@ -129,6 +135,38 @@ nav { position: relative; }
   box-shadow: 0 0 0 3px rgba(201,180,232,0.35);
 }
 
+/* 手機 RWD 選單 */
+@media (max-width: 768px) {
+  .menu-toggle { display: flex; }
+
+  .header { padding: 10px 16px; }
+  .logo { font-size: 1.4rem; }
+
+  .menu {
+    position: fixed;
+    top: var(--header-h);
+    left: 0; right: 0; bottom: 0;
+    background: rgba(255,255,255,0.97);
+    padding: 24px;
+    display: none;
+    flex-direction: column;
+    gap: 14px;
+    overflow-y: auto;
+    z-index: 1100;
+  }
+
+  .menu.open { display: flex; }
+
+  body.nav-open {
+    height: 100vh;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+
+  .container { padding: 0 16px 32px; }
+}
+
 /* === 按鈕 (品牌統一版) === */
 .more-center {
   display: flex;
@@ -143,7 +181,7 @@ nav { position: relative; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 200px;      /* ⬅ 讓兩顆按鈕同寬 */
+  min-width: 200px;
   padding: 12px 24px;
   border-radius: 999px;
 
@@ -177,7 +215,6 @@ nav { position: relative; }
   box-shadow: 0 4px 12px rgba(130,112,173,0.22);
 }
 
-/* 手機版按鈕 */
 @media (max-width: 768px) {
   .more-center {
     flex-direction: column;
@@ -188,24 +225,6 @@ nav { position: relative; }
     width: 100%;
     max-width: 260px;
   }
-}
-
-/* === Hero 圖片 === */
-.course-image {
-  width: 100%;
-  max-height: 350px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin: 20px 0;
-}
-
-/* Hero 文字 */
-.course-description {
-  font-size: 1.15rem;
-  line-height: 1.7;
-  color: var(--brand-text);
-  text-align: center;
-  margin-bottom: 30px;
 }
 
 /* === 內容區塊標題 === */
@@ -254,6 +273,7 @@ nav { position: relative; }
   height: 200px;
   border-radius: 10px;
   object-fit: cover;
+  display: block;
 }
 
 .course-card h3 {
@@ -273,114 +293,21 @@ nav { position: relative; }
   box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
-/* === 學員作品集 === */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-  gap: 20px;
-  margin-top: 24px;
+/* === 師資照片（圓形） === */
+.teacher-photo-wrap {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.gallery img {
-  width: 100%;
-  border-radius: 10px;
+.teacher-photo {
+  width: 180px;
+  height: 180px;
   object-fit: cover;
-  height: 200px;
-  transition: transform 0.25s ease;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 }
 
-.gallery img:hover {
-  transform: scale(1.05);
-}
-
-/* === Lightbox === */
-.lightbox-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.8);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-}
-
-.lightbox-overlay img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 10px;
-}
-
-/* === 手機 RWD === */
-@media (max-width: 768px) {
-
-  .container { padding: 0 16px 32px; }
-
-  .menu-toggle { display: flex; }
-
-  .header { padding: 10px 16px; }
-  .logo { font-size: 1.4rem; }
-
-  .menu {
-    position: fixed;
-    top: var(--header-h);
-    left: 0; right: 0; bottom: 0;
-    background: rgba(255,255,255,0.97);
-    padding: 24px;
-    display: none;
-    flex-direction: column;
-    gap: 14px;
-    overflow-y: auto;
-    z-index: 1100;
-  }
-
-  .menu.open { display: flex; }
-
-  body.nav-open {
-    height: 100vh;
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-  }
-
-  .course-grid {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 16px;
-  }
-
-  .gallery {
-    display: flex;
-    gap: 12px;
-    overflow-x: auto;
-    padding: 0 10px;
-  }
-
-  .gallery img {
-    height: 140px;
-    flex: 0 0 80%;
-    scroll-snap-align: start;
-  }
-}
-
-/* Footer */
-.footer-content {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* Social icons */
-.social-icons a img {
-  width: 26px;
-  margin: 0 6px;
-  transition: transform .2s ease;
-}
-
-.social-icons a img:hover {
-  transform: scale(1.1);
-}
-
-/* ===== Hero 區塊通用樣式 ===== */
+/* ===== Hero 區塊 ===== */
 .hero {
   padding-top: 40px;
   padding-bottom: 40px;
@@ -390,14 +317,6 @@ nav { position: relative; }
 .hero-inner {
   max-width: 900px;
   margin: 0 auto;
-}
-
-.hero-logo {
-  width: 180px;
-  max-width: 55vw;
-  height: auto;
-  display: block;
-  margin: 0 auto 18px;
 }
 
 .hero-title {
@@ -420,12 +339,6 @@ nav { position: relative; }
   gap: 12px;
 }
 
-/* === 方案 A：極簡大 Logo 置中 === */
-.hero-a {
-  background: linear-gradient(180deg, #f9f7ff 0%, #ffffff 60%);
-}
-
-/* === 方案 B：Logo + 淡紫圓光圈 === */
 .hero-b {
   background: linear-gradient(180deg, #f9f7ff 0%, #ffffff 70%);
 }
@@ -435,6 +348,10 @@ nav { position: relative; }
   width: 220px;
   max-width: 65vw;
   margin: 0 auto 18px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero-logo-wrap::before {
@@ -447,29 +364,14 @@ nav { position: relative; }
   z-index: -1;
 }
 
-/* === 方案 C：左 Logo 右文字版本 === */
-.hero-c {
-  background: linear-gradient(180deg, #f9f7ff 0%, #ffffff 80%);
+.hero-logo {
+  width: 180px;
+  max-width: 55vw;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
-.hero-c-inner {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  text-align: left;
-}
-
-.hero-c-logo-area {
-  flex: 0 0 230px;
-  display: flex;
-  justify-content: center;
-}
-
-.hero-c-text-area {
-  flex: 1 1 auto;
-}
-
-/* RWD：手機改為上下排列 */
 @media (max-width: 768px) {
   .hero {
     padding-top: 30px;
@@ -481,12 +383,138 @@ nav { position: relative; }
   .hero-subtitle {
     font-size: 0.95rem;
   }
-  .hero-c-inner {
-    flex-direction: column;
-    text-align: center;
+}
+
+/* === Lightbox === */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.lightbox-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+/* =========================
+   學員成果：橫向輪播（含箭頭/計數/等高）
+   ========================= */
+
+.gallery-wrap {
+  position: relative;
+  margin-top: 16px;
+}
+
+/* ✅ 只給輪播用，避免被你其他 .gallery 設定影響 */
+.gallery--carousel {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 6px 52px;
+
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.gallery--carousel::-webkit-scrollbar { display: none; }
+
+.gallery--carousel .lightbox-link {
+  flex: 0 0 240px;          /* 桌機每張寬度 */
+  border-radius: 14px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+.gallery--carousel img {
+  width: 100%;
+  height: 180px;            /* ✅ 統一高度 */
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+
+  border: 1px solid var(--brand-main);
+  background: rgba(255,255,255,0.92);
+  color: #333;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 6px 18px rgba(0,0,0,0.10);
+  transition: transform .15s ease, opacity .2s ease, box-shadow .2s ease;
+}
+
+.gallery-arrow:hover {
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.16);
+}
+
+.gallery-arrow.left { left: 8px; }
+.gallery-arrow.right { right: 8px; }
+
+.gallery-arrow.is-disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.gallery-counter {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .gallery--carousel {
+    padding: 6px 44px;
   }
-  .hero-c-text-area {
-    text-align: center;
+  .gallery--carousel .lightbox-link {
+    flex: 0 0 80%;        /* 手機一張大圖好滑 */
+  }
+  .gallery--carousel img {
+    height: 160px;
   }
 }
 
+/* Footer */
+.footer-content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Social icons */
+.social-icons a img {
+  width: 26px;
+  margin: 0 6px;
+  transition: transform .2s ease;
+}
+
+.social-icons a img:hover {
+  transform: scale(1.1);
+}

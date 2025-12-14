@@ -12,20 +12,25 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@500;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
 
-
-  <!-- OG Meta（請換成你的實際網址與圖片） -->
+  <!-- OG Meta（可之後再換成你的網域） -->
   <meta property="og:title" content="Yi's Piano Studio｜台北鋼琴教學・長笛課程・一對一私人指導" />
   <meta property="og:description" content="鋼琴與長笛一對一/小班教學，兒童到成人皆適合，檢定、比賽、伴奏指導。" />
   <meta property="og:image" content="https://你的網域/img/og-music.jpg" />
   <meta property="og:url" content="https://你的網域" />
 </head>
+
 <body>
+
   <!-- 導覽列 -->
   <header class="header">
     <div class="header-inner">
       <h1 class="logo"><a href="index.html">Yi's Piano Studio</a></h1>
       <nav>
-        <button class="menu-toggle" type="button" aria-label="切換選單" aria-controls="site-menu" aria-expanded="false">☰</button>
+        <button class="menu-toggle" type="button"
+          aria-label="切換選單"
+          aria-controls="site-menu"
+          aria-expanded="false">☰</button>
+
         <ul class="menu" id="site-menu">
           <li><a href="#about">關於我們</a></li>
           <li><a href="#courses">課程介紹</a></li>
@@ -38,50 +43,33 @@
   </header>
 
   <main class="container">
-    <!-- Hero -->
-    <!--<section class="section" id="hero" style="text-align:center">
-      <img
-        src="img/hero-piano-flute.jpg"
-        alt="Yi's Piano Studio 鋼琴與長笛教學"
-        class="course-image"
-        loading="lazy"
-        decoding="async"
-      />
-      <p class="course-description">
-        讓旋律化作心靈最美的呢喃<br/>
-        鋼琴・長笛教學｜一對一・小班制｜兒童/成人課程
-      </p>
-      <p>
-        <a class="more-button" href="#contact">立即預約體驗</a>
-      </p>
-    </section>-->
-  <section class="hero hero-b section" id="hero">
-  <div class="hero-inner">
-    <div class="hero-logo-wrap">
-      <img
-        src="jpg/yipianologo.jpg"
-        alt="Yi's Piano Studio 標誌"
-        class="hero-logo"
-      />
-    </div>
 
-    <!-- 標題 -->
-    <h2 class="hero-title">讓旋律化作心靈最美的呢喃</h2>
+    <!-- Hero（Logo + 淡紫圓光圈） -->
+    <section class="hero hero-b section" id="hero">
+      <div class="hero-inner">
+        <div class="hero-logo-wrap">
+          <img
+            src="jpg/yipianologo.jpg"
+            alt="Yi's Piano Studio 標誌"
+            class="hero-logo"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
 
-    <!-- 副標 -->
-    <p class="hero-subtitle">
-      鋼琴・長笛教學｜一對一・小班制｜兒童／成人課程
-    </p>
+        <h2 class="hero-title">讓旋律化作心靈最美的呢喃</h2>
 
-    <!-- 按鈕 -->
-    <div class="hero-actions">
-      <a class="form-button" href="https://forms.gle/7nYWPPvNrmqvfxt59" target="_blank" rel="noopener">
-        預約體驗／報名
-      </a>
-    </div>
-  </div>
-</section>
+        <p class="hero-subtitle">
+          鋼琴・長笛教學｜一對一・小班制｜兒童／成人課程
+        </p>
 
+        <div class="hero-actions">
+          <a class="form-button" href="https://forms.gle/7nYWPPvNrmqvfxt59" target="_blank" rel="noopener">
+            預約體驗／報名
+          </a>
+        </div>
+      </div>
+    </section>
 
     <!-- 關於 -->
     <section class="section" id="about">
@@ -98,32 +86,33 @@
     <!-- 課程介紹 -->
     <section class="section" id="courses">
       <h2>課程介紹</h2>
+
       <div class="course-grid">
-        <!-- 鋼琴：兒童 -->
         <a href="courses/piano-kids.html" class="course-card">
-          <img src="img/course-piano-kids.jpg" alt="兒童鋼琴課程" />
+          <img src="img/course-piano-kids.jpg" alt="兒童鋼琴課程" loading="lazy" decoding="async" />
           <h3>兒童鋼琴課（4–12 歲）</h3>
           <p>基礎指法、節奏、視譜，建立良好樂感與學習習慣。</p>
         </a>
-        <!-- 鋼琴：成人 -->
+
         <a href="courses/piano-adult.html" class="course-card">
-          <img src="img/course-piano-adult.jpg" alt="成人鋼琴課程" />
+          <img src="img/course-piano-adult.jpg" alt="成人鋼琴課程" loading="lazy" decoding="async" />
           <h3>成人鋼琴課（13 歲以上）</h3>
           <p>從興趣到檢定/比賽，依目標客製化進度與曲目。</p>
         </a>
-        <!-- 長笛：初學/進階 -->
+
         <a href="courses/flute.html" class="course-card">
-          <img src="img/course-flute.jpg" alt="長笛課程" />
+          <img src="img/course-flute.jpg" alt="長笛課程" loading="lazy" decoding="async" />
           <h3>長笛課程（初學/進階）</h3>
           <p>口型氣息、音色控制、合奏協作，建立穩定演奏力。</p>
         </a>
-        <!-- 伴奏/舞台訓練 -->
+
         <a href="courses/accompaniment-stage.html" class="course-card">
-          <img src="img/course-stage.jpg" alt="伴奏/舞台訓練" />
+          <img src="img/course-stage.jpg" alt="伴奏/舞台訓練" loading="lazy" decoding="async" />
           <h3>伴奏與舞台訓練</h3>
           <p>演出禮儀、舞台呈現、合作與即興，完整提升表現。</p>
         </a>
       </div>
+
       <div class="more-center">
         <a class="more-button" href="class.html">查看更多課程</a>
         <a class="form-button" href="https://forms.gle/7nYWPPvNrmqvfxt59" target="_blank" rel="noopener">預約體驗/報名</a>
@@ -133,8 +122,9 @@
     <!-- 師資介紹 -->
     <section class="section" id="teacher">
       <h2>師資介紹</h2>
+
       <div class="teacher-photo-wrap">
-        <img src="jpg/teacher.jpg" alt="教師照片" class="teacher-photo">
+        <img src="jpg/teacher.jpg" alt="教師照片" class="teacher-photo" loading="lazy" decoding="async" />
       </div>
 
       <p>
@@ -143,33 +133,40 @@
         基礎打底 → 技巧訓練 → 曲目詮釋 → 舞台表現與檢定／比賽準備。<br/>
         擅長依學生個性與目標客製化課程，讓每位學員都能在舒適但有效率的節奏中成長。
       </p>
-      <!-- 可放師資照片 -->
-      <!-- <img src="img/teacher.jpg" alt="師資照片" class="teacher-photo" loading="lazy" decoding="async" /> -->
     </section>
 
-    <!-- 學員成果（照片 lightbox 或影片） -->
+    <!-- ✅ 學員成果（橫向輪播 + 左右箭頭 + 計數器 + 等高圖片） -->
     <section class="section" id="works">
       <h2>學員成果</h2>
 
-      <!-- 照片（可用 lightbox 放大） -->
-      <div class="gallery">
-        <a href="jpg/合格檢定.jpg" class="lightbox-link">
-          <img src="jpg/合格檢定.jpg" alt="合格檢定" loading="lazy" decoding="async" />
-        </a>
-        <a href="img/work-2.jpg" class="lightbox-link">
-          <img src="img/work-2.jpg" alt="學員舞台演出照片 2" loading="lazy" decoding="async" />
-        </a>
-        <a href="img/work-3.jpg" class="lightbox-link">
-          <img src="img/work-3.jpg" alt="學員舞台演出照片 3" loading="lazy" decoding="async" />
-        </a>
-      </div>
+      <div class="gallery-wrap">
+        <button class="gallery-arrow left" type="button" aria-label="上一張">‹</button>
 
-      <!-- 影片（可選：展示表演/期末發表） -->
-      <!--
-      <div class="video-list">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/你的影片ID" title="學生演奏影片" frameborder="0" allowfullscreen loading="lazy"></iframe>
+        <!-- ✅ 注意：這裡只有 id，不要加 .gallery（避免被你原本 .gallery grid/flex 影響） -->
+        <div class="gallery--carousel" id="studentGallery">
+          <a href="student/合格檢定.jpg" class="lightbox-link">
+            <img src="student/合格檢定.jpg" alt="合格檢定" loading="lazy" decoding="async" />
+          </a>
+
+          <a href="student/student1.jpg" class="lightbox-link">
+            <img src="student/student1.jpg" alt="student1" loading="lazy" decoding="async" />
+          </a>
+
+          <a href="student/student2.jpg" class="lightbox-link">
+            <img src="student/student2.jpg" alt="student2" loading="lazy" decoding="async" />
+          </a>
+
+          <a href="student/student3.jpg" class="lightbox-link">
+            <img src="student/student3.jpg" alt="student3" loading="lazy" decoding="async" />
+          </a>
+        </div>
+
+        <button class="gallery-arrow right" type="button" aria-label="下一張">›</button>
+
+        <div class="gallery-counter" aria-live="polite">
+          <span id="galleryIndex">1</span> / <span id="galleryTotal">4</span>
+        </div>
       </div>
-      -->
 
       <div class="more-center">
         <a class="more-button" href="work.html">看更多成果</a>
@@ -184,11 +181,14 @@
         課程型態：一對一／2–3 人小班｜50–60 分鐘/堂<br/>
         初次體驗：提供 30 分鐘試上（需預約）
       </p>
+
       <div class="more-center">
-        <a class="form-button" href="https://lin.ee/8Av6giM" target="_blank" rel="noopener">加入 LINE 詢問</a>
-        <a class="more-button" href="https://forms.gle/7nYWPPvNrmqvfxt59" target="_blank" rel="noopener">預約體驗填寫報名表</a>
+        <a class="more-button" href="https://forms.gle/7nYWPPvNrmqvfxt59" target="_blank" rel="noopener">
+          預約體驗／報名
+        </a>
       </div>
     </section>
+
   </main>
 
   <!-- footer -->
@@ -217,12 +217,13 @@
     <img src="" alt="放大圖片" id="lightbox-img" />
   </div>
 
-  <!-- JS：沿用你的 Lightbox & 漢堡選單 -->
+  <!-- JS：Lightbox + 漢堡選單 + 輪播箭頭/計數 -->
   <script>
     /* === Lightbox === */
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const links = document.querySelectorAll('.lightbox-link');
+
     links.forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
@@ -231,6 +232,7 @@
         lightbox.setAttribute('aria-hidden', 'false');
       });
     });
+
     lightbox.addEventListener('click', () => {
       lightbox.style.display = 'none';
       lightbox.setAttribute('aria-hidden', 'true');
@@ -239,6 +241,7 @@
     /* === 漢堡選單 === */
     const toggle = document.querySelector('.menu-toggle');
     const menu = document.getElementById('site-menu');
+
     function openMenu() {
       menu.classList.add('open');
       document.body.classList.add('nav-open');
@@ -253,6 +256,7 @@
       e?.stopPropagation();
       menu.classList.contains('open') ? closeMenu() : openMenu();
     }
+
     if (toggle && menu) {
       toggle.addEventListener('click', toggleMenu);
       toggle.addEventListener('keydown', (e) => {
@@ -263,6 +267,68 @@
       document.addEventListener('click', (e) => { if (!menu.contains(e.target) && !toggle.contains(e.target)) closeMenu(); });
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
     }
+
+    /* === 輪播（箭頭 + 計數器） === */
+    (function () {
+      const gallery = document.getElementById("studentGallery");
+      if (!gallery) return;
+
+      const btnLeft = document.querySelector(".gallery-arrow.left");
+      const btnRight = document.querySelector(".gallery-arrow.right");
+      const elIndex = document.getElementById("galleryIndex");
+      const elTotal = document.getElementById("galleryTotal");
+
+      const items = Array.from(gallery.querySelectorAll(".lightbox-link"));
+      const total = items.length;
+
+      if (elTotal) elTotal.textContent = total;
+
+      function getGap() {
+        const styles = window.getComputedStyle(gallery);
+        const gap = parseFloat(styles.columnGap || styles.gap || "16");
+        return Number.isFinite(gap) ? gap : 16;
+      }
+
+      function getStep() {
+        const first = items[0];
+        if (!first) return 300;
+        return first.getBoundingClientRect().width + getGap();
+      }
+
+      function getCurrentIndex() {
+        const step = getStep();
+        const idx = Math.round(gallery.scrollLeft / step) + 1;
+        return Math.min(Math.max(idx, 1), total);
+      }
+
+      function updateUI() {
+        const idx = getCurrentIndex();
+        if (elIndex) elIndex.textContent = idx;
+
+        const atStart = gallery.scrollLeft <= 2;
+        const atEnd = gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth - 2;
+
+        btnLeft?.classList.toggle("is-disabled", atStart);
+        btnRight?.classList.toggle("is-disabled", atEnd);
+      }
+
+      btnLeft?.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        gallery.scrollBy({ left: -getStep(), behavior: "smooth" });
+      });
+
+      btnRight?.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        gallery.scrollBy({ left: getStep(), behavior: "smooth" });
+      });
+
+      gallery.addEventListener("scroll", () => requestAnimationFrame(updateUI));
+      window.addEventListener("resize", () => requestAnimationFrame(updateUI));
+
+      updateUI();
+    })();
   </script>
 </body>
 </html>
