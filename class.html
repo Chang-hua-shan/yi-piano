@@ -14,7 +14,7 @@
   <meta property="og:image" content="https://你的網域/img/og-music.jpg" />
   <meta property="og:url" content="https://你的網域/class.html" />
 
-  <!-- JSON-LD 結構化資料（可加強 SEO，可留著待你補充聯絡資訊） -->
+  <!-- JSON-LD 結構化資料 -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -30,26 +30,42 @@
     ]
   }
   </script>
+
   <style>
-    /* ====== class.html 專用的少量樣式（其餘沿用 style.css） ====== */
+    /* ====== class.html 專用（其餘沿用 style.css） ====== */
     .page-hero { text-align:center; margin: 18px 0 10px; }
     .page-hero h1 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 0 0 6px; }
-    .breadcrumb { text-align:center; font-size: .9rem; color:#666; margin-bottom: 16px; }
 
     .filters { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin: 10px 0 18px; }
     .filter-btn { border:1px solid #ddd; background:#fff; padding:8px 12px; border-radius:999px; font-size:.92rem; cursor:pointer; }
     .filter-btn.active { border-color:#333; }
 
-    /* 課程網格：與 index 同步邏輯，手機 2 欄 / 平板 3 欄 / 桌機 4 欄 */
-    .course-grid { display:grid; grid-template-columns: repeat(2, 1fr); gap:14px; }
-    @media (min-width: 768px){ .course-grid{ grid-template-columns: repeat(3, 1fr); gap:16px; } }
-    @media (min-width: 1024px){ .course-grid{ grid-template-columns: repeat(4, 1fr); gap:18px; } }
+    /* ✅ 你要的：桌機 4 欄；手機 2 欄（每頁顯示 4 = 2x2） */
+    .course-grid { display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap:14px; }
+    @media (min-width: 1024px){ .course-grid{ grid-template-columns: repeat(4, minmax(0, 1fr)); gap:18px; } }
 
-    .course-card{ display:block; border-radius:14px; overflow:hidden; text-decoration:none; background:#fff; box-shadow:0 6px 18px rgba(0,0,0,.06); transition:transform .18s ease, box-shadow .18s ease; }
-    .course-card:hover{ transform: translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,.10); }
-    .course-card img{ width:100%; height:160px; object-fit:cover; display:block; }
-    .course-card h3{ margin:10px 12px 4px; font-size:1rem; }
-    .course-card p{ margin:0 12px 12px; font-size:.92rem; color:#555; }
+    /* ✅ 避免 style.css 的 width:280px 影響（提高優先權） */
+    .course-grid .course-card{
+      width: auto !important;
+      display:block;
+      border-radius:14px;
+      overflow:hidden;
+      text-decoration:none;
+      background:#fff;
+      box-shadow:0 6px 18px rgba(0,0,0,.06);
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .course-grid .course-card:hover{ transform: translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,.10); }
+
+    .course-grid .course-card img{
+      width:100%;
+      height:150px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .course-grid .course-card h3{ margin:10px 12px 4px; font-size:1rem; line-height:1.35; }
+    .course-grid .course-card p{ margin:0 12px 12px; font-size:.92rem; color:#555; line-height:1.5; }
 
     .badge { display:inline-block; margin:0 12px 12px; font-size:.8rem; color:#444; background:#f3f3f3; padding:4px 8px; border-radius:8px; }
 
@@ -60,18 +76,23 @@
     .page-info { font-size:.95rem; color:#444; }
   </style>
 </head>
+
 <body>
-  <!-- Header（沿用全站樣式與結構） -->
+  <!-- Header -->
   <header class="header">
     <div class="header-inner">
       <h1 class="logo"><a href="index.html">Yi's Piano Studio</a></h1>
       <nav>
-        <button class="menu-toggle" type="button" aria-label="切換選單" aria-controls="site-menu" aria-expanded="false">☰</button>
+        <button class="menu-toggle" type="button" aria-label="切換選單" aria-controls="site-menu" aria-expanded="false">
+         <span class="bar" aria-hidden="true"></span>
+         <span class="bar" aria-hidden="true"></span>
+         <span class="bar" aria-hidden="true"></span>
+        </button>
         <ul class="menu" id="site-menu">
           <li><a href="index.html#about">關於我們</a></li>
           <li><a href="class.html">課程介紹</a></li>
           <li><a href="index.html#teacher">師資介紹</a></li>
-          <li><a href="works.html">學員成果</a></li>
+          <li><a href="work.html">學員成果</a></li>
           <li><a href="index.html#contact">聯絡/報名</a></li>
         </ul>
       </nav>
@@ -79,12 +100,12 @@
   </header>
 
   <main class="container">
-      <div class="page-hero">
-         <h1>課程總覽</h1>
-         <p style="margin-top:8px; font-size:0.95rem; color:#555;">
-         依照年齡、程度與目標，選擇最適合你的課程。如不確定，可先預約體驗課，由老師協助評估。
+    <div class="page-hero">
+      <h1>課程總覽</h1>
+      <p style="margin-top:8px; font-size:0.95rem; color:#555;">
+        依照年齡、程度與目標，選擇最適合你的課程。如不確定，可先預約體驗課，由老師協助評估。
       </p>
-      </div>
+    </div>
 
     <!-- 篩選器 -->
     <div class="filters" role="toolbar" aria-label="課程篩選">
@@ -98,56 +119,48 @@
     <!-- 課程清單 -->
     <section class="section" id="class">
       <div class="course-grid" id="courseGrid">
-        <!-- 兒童鋼琴 -->
         <a href="courses/piano-kids.html" class="course-card" data-category="piano exam">
           <img src="img/course-piano-kids.jpg" alt="兒童鋼琴課：基礎指法、節奏、視譜啟蒙" loading="lazy" decoding="async" />
           <h3>兒童鋼琴課（4–12 歲）</h3>
           <p>打好基礎，從遊戲中培養樂感與專注力。</p>
-          <span class="badge">一對一/小班</span>
+          <span class="badge">一對一/客製化進度</span>
         </a>
-        <!-- 成人鋼琴 -->
+
         <a href="courses/piano-adult.html" class="course-card" data-category="piano exam">
           <img src="img/course-piano-adult.jpg" alt="成人鋼琴課：客製曲目與進度，檢定/比賽/伴奏指導" loading="lazy" decoding="async" />
           <h3>成人鋼琴課（13+）</h3>
           <p>依興趣或目標客製化，紓壓、表演、檢定都適合。</p>
-          <span class="badge">客製化進度</span>
+          <span class="badge">一對一/客製化進度</span>
         </a>
-        <!-- 長笛 初學/進階 -->
+
         <a href="courses/flute.html" class="course-card" data-category="flute stage exam">
           <img src="img/course-flute.jpg" alt="長笛課程：口型氣息與音色控制，合奏與協作" loading="lazy" decoding="async" />
           <h3>長笛課程（初學/進階）</h3>
           <p>氣息與發音、音準音色、重奏合奏與舞台表現。</p>
           <span class="badge">個別/重奏</span>
         </a>
-        <!-- 伴奏與舞台訓練 -->
+
         <a href="courses/accompaniment-stage.html" class="course-card" data-category="stage">
           <img src="img/course-stage.jpg" alt="伴奏與舞台訓練：演出禮儀、合作默契、臨場應對" loading="lazy" decoding="async" />
           <h3>伴奏與舞台訓練</h3>
           <p>排練策略、合作默契與台風，強化整體演出力。</p>
           <span class="badge">演出實戰</span>
         </a>
-        <!-- 視唱聽寫/樂理 -->
+
         <a href="courses/musictheory.html" class="course-card" data-category="exam piano flute">
           <img src="img/course-theory.jpg" alt="視唱聽寫與樂理：節奏、和聲、曲式基礎" loading="lazy" decoding="async" />
           <h3>視唱聽寫｜樂理基礎</h3>
           <p>節奏/旋律訓練、和聲與曲式，檢定比賽加分。</p>
           <span class="badge">檢定輔導</span>
         </a>
-        <!-- 合奏/室內樂 -->
-        <a href="courses/ensemble.html" class="course-card" data-category="stage flute piano">
-          <img src="img/course-ensemble.jpg" alt="合奏/室內樂：重奏編制、合作與溝通" loading="lazy" decoding="async" />
-          <h3>合奏/室內樂訓練</h3>
-          <p>重奏編制與分工，提升聽力與音樂互動性。</p>
-          <span class="badge">合作/互動</span>
-        </a>
-        <!-- 速成/短期目標 -->
+
         <a href="courses/bootcamp.html" class="course-card" data-category="piano flute exam">
           <img src="img/course-bootcamp.jpg" alt="短期衝刺課：演出前暖身、檢定衝刺" loading="lazy" decoding="async" />
           <h3>短期衝刺｜密集特訓</h3>
           <p>演出前暖身、檢定衝刺、指定曲目快攻。</p>
           <span class="badge">短期方案</span>
         </a>
-        <!-- 兒童啟蒙音樂律動 -->
+
         <a href="courses/eurhythmics.html" class="course-card" data-category="piano">
           <img src="img/course-eurhythmics.jpg" alt="兒童音樂律動：節奏感與肢體協調啟蒙" loading="lazy" decoding="async" />
           <h3>兒童音樂律動</h3>
@@ -170,7 +183,7 @@
     </div>
   </main>
 
-  <!-- footer（沿用全站） -->
+  <!-- footer -->
   <footer class="site-footer">
     <div class="footer-content">
       <div class="social-icons">
@@ -191,9 +204,8 @@
     </div>
   </footer>
 
-  <!-- JS：沿用你的漢堡選單 + 本頁的簡易篩選器 -->
   <script>
-    /* === 漢堡選單（沿用 index.html 的寫法） === */
+    /* === 漢堡選單 === */
     const toggle = document.querySelector('.menu-toggle');
     const menu = document.getElementById('site-menu');
     function openMenu(){ menu.classList.add('open'); document.body.classList.add('nav-open'); toggle.setAttribute('aria-expanded','true'); }
@@ -206,15 +218,47 @@
       document.addEventListener('click', (e)=>{ if(!menu.contains(e.target) && !toggle.contains(e.target)) closeMenu(); });
       document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeMenu(); });
     }
+    /* === Header shrink on scroll === */
+(function () {
+  const header = document.querySelector(".header");
+  if (!header) return;
 
-    /* === 篩選 + 分頁：依 data-category 過濾並每頁顯示固定數量 === */
+  const root = document.documentElement;
+
+  // 依螢幕寬度設定兩種高度（避免 body padding-top 不一致）
+  function setHeaderHeight(shrink) {
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const normalH = isMobile ? 56 : 64;
+    const shrinkH = isMobile ? 50 : 56;
+    root.style.setProperty("--header-h", (shrink ? shrinkH : normalH) + "px");
+  }
+
+  function onScroll() {
+    const shrink = window.scrollY > 20;
+    header.classList.toggle("header--shrink", shrink);
+    setHeaderHeight(shrink);
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", () => {
+    // resize 時重新對齊高度（避免旋轉手機後不準）
+    onScroll();
+  });
+
+  // 初始化
+  onScroll();
+})();
+
+
+    /* ✅ 篩選 + 分頁：每頁固定 4 個 */
     const filterBtns = document.querySelectorAll('.filter-btn');
     const cards = Array.from(document.querySelectorAll('.course-card'));
     const pagination = document.getElementById('pagination');
     const prevBtn = document.getElementById('prevPage');
     const nextBtn = document.getElementById('nextPage');
     const pageInfo = document.getElementById('pageInfo');
-    const PAGE_SIZE = 6;
+
+    const PAGE_SIZE = 4;  // ✅ 你要的：每頁 4 個
     let currentFilter = 'all';
     let currentPage = 1;
 
@@ -229,12 +273,11 @@
       const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
       currentPage = Math.min(currentPage, totalPages);
 
-      // 重置顯示
       cards.forEach(card => card.style.display = 'none');
+
       const start = (currentPage - 1) * PAGE_SIZE;
       filtered.slice(start, start + PAGE_SIZE).forEach(card => card.style.display = 'block');
 
-      // 更新分頁控制
       if (pagination) {
         pagination.style.display = totalPages > 1 ? 'flex' : 'none';
         pageInfo.textContent = `第 ${currentPage} / ${totalPages} 頁`;
@@ -259,6 +302,7 @@
         render();
       }
     });
+
     nextBtn?.addEventListener('click', () => {
       const filtered = cards.filter(matchesFilter);
       const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));

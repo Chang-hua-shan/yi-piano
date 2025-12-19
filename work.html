@@ -18,13 +18,17 @@
     <div class="header-inner">
       <h1 class="logo"><a href="index.html">Yi's Piano Studio</a></h1>
       <nav>
-        <button class="menu-toggle" type="button" aria-label="切換選單" aria-controls="site-menu" aria-expanded="false">☰</button>
+         <button class="menu-toggle" type="button" aria-label="切換選單" aria-controls="site-menu" aria-expanded="false">
+         <span class="bar" aria-hidden="true"></span>
+         <span class="bar" aria-hidden="true"></span>
+         <span class="bar" aria-hidden="true"></span>
+        </button>
         <ul class="menu" id="site-menu">
           <li><a href="index.html#about">關於我們</a></li>
           <li><a href="class.html">課程介紹</a></li>
           <li><a href="index.html#teacher">師資介紹</a></li>
-          <li><a href="works.html">學員成果</a></li>
-          <li><a href="index.html#contact">聯絡／報名</a></li>
+          <li><a href="work.html">學員成果</a></li>
+          <li><a href="index.html#contact">聯絡/報名</a></li>
         </ul>
       </nav>
     </div>
@@ -75,7 +79,7 @@
       </div>
 
       <div class="more-center" style="margin-top: 24px;">
-        <a class="more-button" href="index.html#contact">我要詢問課程</a>
+         <a class="form-button" href="https://forms.gle/7nYWPPvNrmqvfxt59" target="_blank" rel="noopener">預約體驗/報名</a>
       </div>
     </section>
   </main>
@@ -137,6 +141,37 @@
       document.addEventListener('click', (e)=>{ if(!menu.contains(e.target) && !toggle.contains(e.target)) closeMenu(); });
       document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeMenu(); });
     }
+    /* === Header shrink on scroll === */
+(function () {
+  const header = document.querySelector(".header");
+  if (!header) return;
+
+  const root = document.documentElement;
+
+  // 依螢幕寬度設定兩種高度（避免 body padding-top 不一致）
+  function setHeaderHeight(shrink) {
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const normalH = isMobile ? 56 : 64;
+    const shrinkH = isMobile ? 50 : 56;
+    root.style.setProperty("--header-h", (shrink ? shrinkH : normalH) + "px");
+  }
+
+  function onScroll() {
+    const shrink = window.scrollY > 20;
+    header.classList.toggle("header--shrink", shrink);
+    setHeaderHeight(shrink);
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", () => {
+    // resize 時重新對齊高度（避免旋轉手機後不準）
+    onScroll();
+  });
+
+  // 初始化
+  onScroll();
+})();
+
   </script>
 </body>
 </html>

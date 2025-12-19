@@ -26,17 +26,17 @@
     <div class="header-inner">
       <h1 class="logo"><a href="index.html">Yi's Piano Studio</a></h1>
       <nav>
-        <button class="menu-toggle" type="button"
-          aria-label="切換選單"
-          aria-controls="site-menu"
-          aria-expanded="false">☰</button>
-
+        <button class="menu-toggle" type="button" aria-label="切換選單" aria-controls="site-menu" aria-expanded="false">
+         <span class="bar" aria-hidden="true"></span>
+         <span class="bar" aria-hidden="true"></span>
+         <span class="bar" aria-hidden="true"></span>
+        </button>
         <ul class="menu" id="site-menu">
-          <li><a href="#about">關於我們</a></li>
-          <li><a href="#courses">課程介紹</a></li>
-          <li><a href="#teacher">師資介紹</a></li>
+          <li><a href="index.html#about">關於我們</a></li>
+          <li><a href="class.html">課程介紹</a></li>
+          <li><a href="index.html#teacher">師資介紹</a></li>
           <li><a href="work.html">學員成果</a></li>
-          <li><a href="#contact">聯絡/報名</a></li>
+          <li><a href="index.html#contact">聯絡/報名</a></li>
         </ul>
       </nav>
     </div>
@@ -60,7 +60,7 @@
         <h2 class="hero-title">讓旋律化作心靈最美的呢喃</h2>
 
         <p class="hero-subtitle">
-          鋼琴・長笛教學｜一對一・小班制｜兒童／成人課程
+          鋼琴・長笛教學｜一對一｜兒童／成人課程
         </p>
 
         <div class="hero-actions">
@@ -178,8 +178,8 @@
       <h2>聯絡我們 / 預約體驗</h2>
       <p>
         上課地點：台北市大安區信義路四段265號12巷11弄B1<br/>
-        課程型態：一對一／2–3 人小班｜50–60 分鐘/堂<br/>
-        初次體驗：提供 30 分鐘試上（需預約）
+        課程型態：一對一／50–60 分鐘/堂<br/>
+        初次體驗：提供 50 分鐘試上（需要幫我填寫底下表單，試上一堂1200元）
       </p>
 
       <div class="more-center">
@@ -267,6 +267,37 @@
       document.addEventListener('click', (e) => { if (!menu.contains(e.target) && !toggle.contains(e.target)) closeMenu(); });
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
     }
+
+    /* === Header shrink on scroll === */
+(function () {
+  const header = document.querySelector(".header");
+  if (!header) return;
+
+  const root = document.documentElement;
+
+  // 依螢幕寬度設定兩種高度（避免 body padding-top 不一致）
+  function setHeaderHeight(shrink) {
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const normalH = isMobile ? 56 : 64;
+    const shrinkH = isMobile ? 50 : 56;
+    root.style.setProperty("--header-h", (shrink ? shrinkH : normalH) + "px");
+  }
+
+  function onScroll() {
+    const shrink = window.scrollY > 20;
+    header.classList.toggle("header--shrink", shrink);
+    setHeaderHeight(shrink);
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", () => {
+    // resize 時重新對齊高度（避免旋轉手機後不準）
+    onScroll();
+  });
+
+  // 初始化
+  onScroll();
+})();
 
     /* === 輪播（箭頭 + 計數器） === */
     (function () {
