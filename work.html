@@ -32,8 +32,8 @@
     property="og:description"
     content="檢定合格、舞台演出與發表會紀錄，見證 Yi's Piano Studio 學員的學習成果。"
   />
-  <meta property="og:image" content="https://你的網域/img/og-work.jpg" />
-  <meta property="og:url" content="https://你的網域/work.html" />
+  <meta property="og:image" content="https://yispianostudio.com/img/og-music.svg" />
+  <meta property="og:url" content="https://yispianostudio.com/work.html" />
 </head>
 
 <body>
@@ -134,68 +134,9 @@
     <img src="" alt="放大圖片" id="lightbox-img" />
   </div>
 
+  <script src="script.js"></script>
   <script>
-    /* === Lightbox === */
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const links = document.querySelectorAll('.lightbox-link');
-    links.forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        lightboxImg.src = link.getAttribute('href');
-        lightbox.style.display = 'flex';
-        lightbox.setAttribute('aria-hidden', 'false');
-      });
-    });
-    lightbox.addEventListener('click', () => {
-      lightbox.style.display = 'none';
-      lightbox.setAttribute('aria-hidden', 'true');
-    });
-
-    /* === 漢堡選單：跟 index.html 一樣 === */
-    const toggle = document.querySelector('.menu-toggle');
-    const menu = document.getElementById('site-menu');
-    function openMenu(){ menu.classList.add('open'); document.body.classList.add('nav-open'); toggle.setAttribute('aria-expanded','true'); }
-    function closeMenu(){ menu.classList.remove('open'); document.body.classList.remove('nav-open'); toggle.setAttribute('aria-expanded','false'); }
-    function toggleMenu(e){ e?.stopPropagation(); menu.classList.contains('open') ? closeMenu() : openMenu(); }
-    if (toggle && menu){
-      toggle.addEventListener('click', toggleMenu);
-      toggle.addEventListener('keydown', (e)=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggleMenu(e);} if(e.key==='Escape') closeMenu(); });
-      menu.addEventListener('click', (e)=>{ if(e.target.closest('a')) closeMenu(); });
-      document.addEventListener('click', (e)=>{ if(!menu.contains(e.target) && !toggle.contains(e.target)) closeMenu(); });
-      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeMenu(); });
-    }
-    /* === Header shrink on scroll === */
-(function () {
-  const header = document.querySelector(".header");
-  if (!header) return;
-
-  const root = document.documentElement;
-
-  // 依螢幕寬度設定兩種高度（避免 body padding-top 不一致）
-  function setHeaderHeight(shrink) {
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
-    const normalH = isMobile ? 56 : 64;
-    const shrinkH = isMobile ? 50 : 56;
-    root.style.setProperty("--header-h", (shrink ? shrinkH : normalH) + "px");
-  }
-
-  function onScroll() {
-    const shrink = window.scrollY > 20;
-    header.classList.toggle("header--shrink", shrink);
-    setHeaderHeight(shrink);
-  }
-
-  window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", () => {
-    // resize 時重新對齊高度（避免旋轉手機後不準）
-    onScroll();
-  });
-
-  // 初始化
-  onScroll();
-})();
-
+    // Lightbox, Menu, Header Shrink moved to script.js
   </script>
 </body>
 </html>
