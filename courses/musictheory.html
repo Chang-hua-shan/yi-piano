@@ -32,11 +32,21 @@
          <span class="bar" aria-hidden="true"></span>
         </button>
         <ul class="menu" id="site-menu">
-          <li><a href="../index.html#about">關於我們</a></li>
-          <li><a href="../class.html">課程介紹</a></li>
-          <li><a href="../index.html#teacher">師資介紹</a></li>
-          <li><a href="../work.html">學員成果</a></li>
-          <li><a href="../index.html#contact">聯絡/報名</a></li>
+          <li><a href="../index.html#about" data-i18n="nav.about">關於我們</a></li>
+          <li><a href="../class.html" data-i18n="nav.courses">課程介紹</a></li>
+          <li><a href="../index.html#teacher" data-i18n="nav.teachers">師資介紹</a></li>
+          <li><a href="../work.html" data-i18n="nav.works">學員成果</a></li>
+          <li><a href="../index.html#contact" data-i18n="nav.contact">聯絡/報名</a></li>
+          <li><a href="../booking.html" class="booking-link" data-i18n="nav.booking">線上預約</a></li>
+          <li class="lang-item">
+            <div class="lang-selector">
+              <select class="lang-select" aria-label="Language Selector">
+                <option value="zh">繁體中文</option>
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
+              </select>
+            </div>
+          </li>
         </ul>
       </nav>
     </div>
@@ -49,36 +59,23 @@
       </div>
       
       <div style="text-align: center; margin-bottom: 30px;">
-        <img src="../img/course-theory.svg" alt="視唱聽寫與樂理" style="max-width: 100%; border-radius: 12px; height: auto; max-height: 400px; object-fit: cover;" loading="lazy" />
+        <img src="../img/course-theory.svg" alt="樂理基礎" style="max-width: 100%; border-radius: 12px; height: auto; max-height: 400px; object-fit: cover;" loading="lazy" />
       </div>
 
-      <h2>課程特色</h2>
-      <p>
-        樂理是音樂的文法，良好的聽寫與視唱能力則是學習任何樂器的加速器。
-      </p>
-      <ul>
-        <li><strong>樂理基礎：</strong>音程、和弦、調性、拍號、音樂術語等系統化教學。</li>
-        <li><strong>視唱訓練：</strong>準確的音準與節奏，培養看到譜就能唱出來的能力。</li>
-        <li><strong>聽寫訓練：</strong>旋律與和聲聽辯，強化音感與記憶力。</li>
-        <li><strong>檢定輔導：</strong>針對英國皇家檢定 (ABRSM) 5級樂理與其他音樂檢定考試內容進行特訓。</li>
-      </ul>
-
-      <h2>適合對象</h2>
-      <p>所有樂器學習者，欲參加樂理檢定、音樂班升學考試者。</p>
-
       <div class="more-center" style="margin-top: 40px;">
-        <a class="form-button" href="https://forms.gle/7nYWPPvNrmqvfxt59" target="_blank" rel="noopener">預約體驗／報名</a>
-        <a class="more-button" href="../class.html">返回課程總覽</a>
+        <a class="form-button" href="../booking.html" data-i18n="courses.book_btn">預約體驗／報名</a>
+        <a class="more-button" href="../class.html" data-i18n="btn.back">返回課程總覽</a>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="footer-content">
-      <p class="copyright">© 2025 Yi's Piano Studio.</p>
+      <p class="copyright" data-i18n="footer.copyright">© 2026 Yi's Piano Studio. All Rights Reserved.</p>
     </div>
   </footer>
 
+  <script src="../i18n.js"></script>
   <script src="../script.js"></script>
 </body>
 </html>

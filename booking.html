@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>線上預約中心｜Yi's Piano Studio</title>
+  <meta name="description" content="Yi's Piano Studio 線上預約與會員系統。提供學員註冊、登入，並可線上預約鋼琴一對一、長笛與舞台伴奏等課程。" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- CSS / Fonts -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="booking.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@500;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
+</head>
+
+<body class="booking-body">
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <h1 class="logo"><a href="index.html">Yi's Piano Studio</a></h1>
+      <nav>
+        <button class="menu-toggle" type="button" aria-label="切換選單" aria-controls="site-menu" aria-expanded="false">
+          <span class="bar" aria-hidden="true"></span>
+          <span class="bar" aria-hidden="true"></span>
+          <span class="bar" aria-hidden="true"></span>
+        </button>
+        <ul class="menu" id="site-menu">
+          <li><a href="index.html#about" data-i18n="nav.about">關於我們</a></li>
+          <li><a href="class.html" data-i18n="nav.courses">課程介紹</a></li>
+          <li><a href="index.html#teacher" data-i18n="nav.teachers">師資介紹</a></li>
+          <li><a href="work.html" data-i18n="nav.works">學員成果</a></li>
+          <li><a href="index.html#contact" data-i18n="nav.contact">聯絡/報名</a></li>
+          <li><a href="booking.html" class="booking-link" data-i18n="nav.booking">線上預約</a></li>
+          <li class="lang-item">
+            <div class="lang-selector">
+              <select class="lang-select" aria-label="Language Selector">
+                <option value="zh">繁體中文</option>
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
+              </select>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="booking-container">
+      
+      <!-- 1. 註冊 / 登入區塊 -->
+      <div id="authView" class="auth-wrapper glass-card">
+        <!-- 登入 Form -->
+        <div id="loginFormSection">
+          <div class="auth-header">
+            <h2>會員登入</h2>
+            <p>請登入以管理您的課程與線上預約</p>
+          </div>
+          <form id="loginForm">
+            <div class="form-group">
+              <label for="loginEmail">電子信箱</label>
+              <input type="email" id="loginEmail" placeholder="example@mail.com" required autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <label for="loginPassword">密碼</label>
+              <input type="password" id="loginPassword" placeholder="請輸入密碼" required autocomplete="current-password" />
+            </div>
+            <button type="submit" class="btn-primary">立即登入</button>
+          </form>
+          <div class="auth-toggle">
+            還沒有帳號嗎？ <a href="#" id="toSignUp">立即註冊</a>
+          </div>
+        </div>
+
+        <!-- 註冊 Form -->
+        <div id="signUpFormSection" style="display: none;">
+          <div class="auth-header">
+            <h2>註冊會員</h2>
+            <p>加入會員即可線上即時預約合適的課程時段</p>
+          </div>
+          <form id="signUpForm">
+            <div class="form-group">
+              <label for="signUpName">學員姓名</label>
+              <input type="text" id="signUpName" placeholder="請輸入姓名" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="signUpEmail">電子信箱</label>
+              <input type="email" id="signUpEmail" placeholder="example@mail.com" required autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <label for="signUpPassword">密碼 (最少 6 位字元)</label>
+              <input type="password" id="signUpPassword" placeholder="請設定密碼" minlength="6" required autocomplete="new-password" />
+            </div>
+            <button type="submit" class="btn-primary">確認註冊</button>
+          </form>
+          <div class="auth-toggle">
+            已經有帳號了？ <a href="#" id="toLogin">立即登入</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. 會員儀表板 / 預約管理 -->
+      <div id="dashboardView" class="glass-card" style="display: none;">
+        
+        <!-- 儀表板頂部資訊 -->
+        <div class="dashboard-header">
+          <div class="user-info">
+            <h2 id="welcomeMsg">您好，學員！</h2>
+            <p id="userRoleText">歡迎來到您的個人音樂殿堂</p>
+          </div>
+          <div class="user-actions">
+            <!-- 預快切換管理端按鈕（便利演示用，可直接點選登入 admin） -->
+            <button id="quickAdminBtn" class="btn-secondary" style="display:none;">進入管理員視角</button>
+            <button id="logoutBtn" class="btn-secondary">登出帳號</button>
+          </div>
+        </div>
+
+        <!-- 分頁選擇 Tabs -->
+        <div class="dashboard-tabs" id="dashboardTabs">
+          <button class="tab-btn active" data-target="bookPanel" id="tabBookBtn">線上預約</button>
+          <button class="tab-btn" data-target="myBookingsPanel" id="tabMyBookingsBtn">我的預約</button>
+          <button class="tab-btn" data-target="adminPanel" id="tabAdminBtn" style="display: none;">預約審核端</button>
+        </div>
+
+        <!-- 3.1 線上預約面板 -->
+        <div id="bookPanel" class="tab-panel active">
+          <form id="bookingForm">
+            <!-- 步驟 1：選擇課程 -->
+            <div class="booking-section-title">
+              <span class="step-badge">1</span> 選擇想預約的課程
+            </div>
+            <div class="course-selector-grid">
+              <label class="course-opt-card selected">
+                <input type="radio" name="bookingCourse" value="兒童鋼琴課" checked />
+                <span class="course-icon">🎹</span>
+                <h4>兒童鋼琴課</h4>
+                <p>適合 4-12 歲兒童啟盟</p>
+              </label>
+              <label class="course-opt-card">
+                <input type="radio" name="bookingCourse" value="成人鋼琴課" />
+                <span class="course-icon">🎶</span>
+                <h4>成人鋼琴課</h4>
+                <p>適合興趣、檢定或自選曲</p>
+              </label>
+              <label class="course-opt-card">
+                <input type="radio" name="bookingCourse" value="長笛課程" />
+                <span class="course-icon">🪈</span>
+                <h4>長笛課程</h4>
+                <p>初學與進階長笛口型指導</p>
+              </label>
+              <label class="course-opt-card">
+                <input type="radio" name="bookingCourse" value="伴奏與舞台訓練" />
+                <span class="course-icon">✨</span>
+                <h4>伴奏與舞台</h4>
+                <p>舞台詮釋與雙人默契培養</p>
+              </label>
+            </div>
+
+            <!-- 步驟 2：選擇教師 -->
+            <div class="form-group" style="max-width: 300px; margin-bottom: 24px;">
+              <div class="booking-section-title">
+                <span class="step-badge">2</span> 選擇授課老師
+              </div>
+              <select id="bookingTeacher" required>
+                <option value="Yi 老師">Yi 老師 (鋼琴/舞台指導)</option>
+                <option value="Flora 老師">Flora 老師 (長笛教學)</option>
+              </select>
+            </div>
+
+            <!-- 步驟 3：選擇日期與時段 -->
+            <div class="booking-section-title">
+              <span class="step-badge">3</span> 選擇日期與時間
+            </div>
+            
+            <div class="form-group" style="max-width: 300px; margin-bottom: 20px;">
+              <label for="bookingDate">預約日期</label>
+              <input type="date" id="bookingDate" required />
+            </div>
+
+            <div class="time-slots-container" id="timeSlotsContainer" style="display: none;">
+              <div class="time-slot-heading">選擇上課時段 (50分鐘/堂)</div>
+              
+              <!-- 上午 -->
+              <div class="time-slot-heading">🌅 上午時段</div>
+              <div class="time-slots-grid" id="morningSlots">
+                <div class="time-slot-card" data-time="09:00 - 09:50">09:00 - 09:50</div>
+                <div class="time-slot-card" data-time="10:35 - 11:25">10:35 - 11:25</div>
+              </div>
+
+              <!-- 下午 -->
+              <div class="time-slot-heading">☀️ 下午時段</div>
+              <div class="time-slots-grid" id="afternoonSlots">
+                <div class="time-slot-card" data-time="13:30 - 14:20">13:30 - 14:20</div>
+                <div class="time-slot-card" data-time="15:00 - 15:50">15:00 - 15:50</div>
+                <div class="time-slot-card" data-time="16:30 - 17:20">16:30 - 17:20</div>
+              </div>
+
+              <!-- 晚上 -->
+              <div class="time-slot-heading">🌙 晚上時段</div>
+              <div class="time-slots-grid" id="eveningSlots">
+                <div class="time-slot-card" data-time="18:30 - 19:20">18:30 - 19:20</div>
+                <div class="time-slot-card" data-time="20:00 - 20:50">20:00 - 20:50</div>
+              </div>
+            </div>
+
+            <!-- 步驟 4：備註說明 -->
+            <div class="form-group" style="margin-top: 24px;">
+              <div class="booking-section-title">
+                <span class="step-badge">4</span> 備註說明
+              </div>
+              <textarea id="bookingNotes" rows="3" placeholder="例如：孩子為零基礎、希望加強特定的流行歌曲、備註上課習慣等..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary" style="margin-top: 12px;" id="submitBookingBtn" disabled>
+              確認送出預約
+            </button>
+          </form>
+        </div>
+
+        <!-- 3.2 我的預約面板 -->
+        <div id="myBookingsPanel" class="tab-panel">
+          <div class="booking-section-title">我的歷史與即時預約</div>
+          <div class="bookings-list" id="myBookingsList">
+            <!-- 動態插入預約卡片 -->
+            <div class="empty-state">
+              <span class="empty-state-icon">📅</span>
+              <p>目前尚無任何預約紀錄。趕快前往「線上預約」預訂一堂體驗課吧！</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3.3 教師審核端面板 -->
+        <div id="adminPanel" class="tab-panel">
+          <div class="booking-section-title">教師端預約審核總覽</div>
+          
+          <div class="admin-toolbar">
+            <div class="admin-filter">
+              <select id="filterTeacher">
+                <option value="all">所有老師</option>
+                <option value="Yi 老師">Yi 老師</option>
+                <option value="Flora 老師">Flora 老師</option>
+              </select>
+              <select id="filterStatus">
+                <option value="all">所有狀態</option>
+                <option value="pending">待審核</option>
+                <option value="confirmed">已確認</option>
+                <option value="cancelled">已取消</option>
+              </select>
+            </div>
+            <div>
+              <span style="font-size:0.88rem; color:#666;" id="adminStatsText">共 0 筆預約</span>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>預約日期</th>
+                  <th>時間段</th>
+                  <th>學員</th>
+                  <th>課程名稱</th>
+                  <th>授課老師</th>
+                  <th>狀態</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody id="adminBookingsTableBody">
+                <!-- 動態插入預約表格行 -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+      
+    </div>
+  </main>
+
+  <!-- footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p class="copyright">© 2025 Yi's Piano Studio. 本系統所有資料皆安全儲存於您本地的瀏覽器中。</p>
+    </div>
+  </footer>
+
+  <!-- Toast 通知容器 -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- JavaScript -->
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+  <script src="booking.js"></script>
+</body>
+</html>

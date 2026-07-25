@@ -55,11 +55,21 @@
          <span class="bar" aria-hidden="true"></span>
         </button>
         <ul class="menu" id="site-menu">
-          <li><a href="index.html#about">關於我們</a></li>
-          <li><a href="class.html">課程介紹</a></li>
-          <li><a href="index.html#teacher">師資介紹</a></li>
-          <li><a href="work.html">學員成果</a></li>
-          <li><a href="index.html#contact">聯絡/報名</a></li>
+          <li><a href="index.html#about" data-i18n="nav.about">關於我們</a></li>
+          <li><a href="class.html" data-i18n="nav.courses">課程介紹</a></li>
+          <li><a href="index.html#teacher" data-i18n="nav.teachers">師資介紹</a></li>
+          <li><a href="work.html" data-i18n="nav.works">學員成果</a></li>
+          <li><a href="index.html#contact" data-i18n="nav.contact">聯絡/報名</a></li>
+          <li><a href="booking.html" class="booking-link" data-i18n="nav.booking">線上預約</a></li>
+          <li class="lang-item">
+            <div class="lang-selector">
+              <select class="lang-select" aria-label="Language Selector">
+                <option value="zh">繁體中文</option>
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
+              </select>
+            </div>
+          </li>
         </ul>
       </nav>
     </div>
@@ -67,68 +77,68 @@
 
   <main class="container">
     <div class="page-hero">
-      <h1>課程總覽</h1>
-      <p style="margin-top:8px; font-size:0.95rem; color:#555;">
+      <h1 data-i18n="class.hero_title">課程總覽</h1>
+      <p style="margin-top:8px; font-size:0.95rem; color:#555;" data-i18n="class.hero_desc">
         依照年齡、程度與目標，選擇最適合你的課程。如不確定，可先預約體驗課，由老師協助評估。
       </p>
     </div>
 
     <!-- 篩選器 -->
     <div class="filters" role="toolbar" aria-label="課程篩選">
-      <button class="filter-btn active" data-filter="all">全部</button>
-      <button class="filter-btn" data-filter="piano">鋼琴</button>
-      <button class="filter-btn" data-filter="flute">長笛</button>
-      <button class="filter-btn" data-filter="stage">伴奏/舞台</button>
-      <button class="filter-btn" data-filter="exam">檢定/比賽</button>
+      <button class="filter-btn active" data-filter="all" data-i18n="class.filter_all">全部</button>
+      <button class="filter-btn" data-filter="piano" data-i18n="class.filter_piano">鋼琴</button>
+      <button class="filter-btn" data-filter="flute" data-i18n="class.filter_flute">長笛</button>
+      <button class="filter-btn" data-filter="stage" data-i18n="class.filter_stage">伴奏/舞台</button>
+      <button class="filter-btn" data-filter="exam" data-i18n="class.filter_exam">檢定/比賽</button>
     </div>
 
     <!-- 課程清單 -->
     <section class="section" id="class">
       <div class="course-grid" id="courseGrid">
         <a href="courses/piano-kids.html" class="course-card" data-category="piano exam">
-          <img src="img/course-piano-kids.svg" alt="兒童鋼琴課：基礎指法、節奏、視譜啟蒙" loading="lazy" decoding="async" />
-          <h3>兒童鋼琴課（4–12 歲）</h3>
-          <p>打好基礎，從遊戲中培養樂感與專注力。</p>
-          <span class="badge">一對一/客製化進度</span>
+          <img src="img/course-piano-kids.svg" alt="兒童鋼琴課" loading="lazy" decoding="async" />
+          <h3 data-i18n="courses.piano_kids_title">兒童鋼琴課（4–12 歲）</h3>
+          <p data-i18n="courses.piano_kids_desc">打好基礎，從遊戲中培養樂感與專注力。</p>
+          <span class="badge" data-i18n="class.badge_custom">一對一/客製化進度</span>
         </a>
 
         <a href="courses/piano-adult.html" class="course-card" data-category="piano exam">
-          <img src="img/course-piano-adult.svg" alt="成人鋼琴課：客製曲目與進度，檢定/比賽/伴奏指導" loading="lazy" decoding="async" />
-          <h3>成人鋼琴課（13+）</h3>
-          <p>依興趣或目標客製化，紓壓、表演、檢定都適合。</p>
-          <span class="badge">一對一/客製化進度</span>
+          <img src="img/course-piano-adult.svg" alt="成人鋼琴課" loading="lazy" decoding="async" />
+          <h3 data-i18n="courses.piano_adult_title">成人鋼琴課（13+）</h3>
+          <p data-i18n="courses.piano_adult_desc">依興趣或目標客製化，紓壓、表演、檢定都適合。</p>
+          <span class="badge" data-i18n="class.badge_custom">一對一/客製化進度</span>
         </a>
 
         <a href="courses/flute.html" class="course-card" data-category="flute stage exam">
-          <img src="img/course-flute.svg" alt="長笛課程：口型氣息與音色控制，合奏與協作" loading="lazy" decoding="async" />
-          <h3>長笛課程（初學/進階）</h3>
-          <p>氣息與發音、音準音色、重奏合奏與舞台表現。</p>
-          <span class="badge">個別/重奏</span>
+          <img src="img/course-flute.svg" alt="長笛課程" loading="lazy" decoding="async" />
+          <h3 data-i18n="courses.flute_beginner_title">長笛課程（初學/進階）</h3>
+          <p data-i18n="courses.flute_beginner_desc">氣息與發音、音準音色、重奏合奏與舞台表現。</p>
+          <span class="badge" data-i18n="class.badge_group">個別/重奏</span>
         </a>
 
         <a href="courses/accompaniment-stage.html" class="course-card" data-category="stage">
-          <img src="img/course-stage.svg" alt="伴奏與舞台訓練：演出禮儀、合作默契、臨場應對" loading="lazy" decoding="async" />
+          <img src="img/course-stage.svg" alt="伴奏與舞台訓練" loading="lazy" decoding="async" />
           <h3>伴奏與舞台訓練</h3>
           <p>排練策略、合作默契與台風，強化整體演出力。</p>
           <span class="badge">演出實戰</span>
         </a>
 
         <a href="courses/musictheory.html" class="course-card" data-category="exam piano flute">
-          <img src="img/course-theory.svg" alt="視唱聽寫與樂理：節奏、和聲、曲式基礎" loading="lazy" decoding="async" />
+          <img src="img/course-theory.svg" alt="視唱聽寫與樂理" loading="lazy" decoding="async" />
           <h3>視唱聽寫｜樂理基礎</h3>
           <p>節奏/旋律訓練、和聲與曲式，檢定比賽加分。</p>
           <span class="badge">檢定輔導</span>
         </a>
 
         <a href="courses/bootcamp.html" class="course-card" data-category="piano flute exam">
-          <img src="img/course-bootcamp.svg" alt="短期衝刺課：演出前暖身、檢定衝刺" loading="lazy" decoding="async" />
+          <img src="img/course-bootcamp.svg" alt="短期衝刺課" loading="lazy" decoding="async" />
           <h3>短期衝刺｜密集特訓</h3>
           <p>演出前暖身、檢定衝刺、指定曲目快攻。</p>
           <span class="badge">短期方案</span>
         </a>
 
         <a href="courses/eurhythmics.html" class="course-card" data-category="piano">
-          <img src="img/course-eurhythmics.svg" alt="兒童音樂律動：節奏感與肢體協調啟蒙" loading="lazy" decoding="async" />
+          <img src="img/course-eurhythmics.svg" alt="兒童音樂律動" loading="lazy" decoding="async" />
           <h3>兒童音樂律動</h3>
           <p>用律動與遊戲建立節奏感與專注力的根基。</p>
           <span class="badge">4–7 歲</span>
@@ -144,8 +154,8 @@
     </section>
 
     <div class="more-center" style="margin-top:18px">
-      <a class="form-button" href="https://forms.gle/7nYWPPvNrmqvfxt59" target="_blank" rel="noopener">預約體驗/報名</a>
-      <a class="more-button" href="index.html#contact">聯絡我們</a>
+      <a class="form-button" href="booking.html" data-i18n="courses.book_btn">預約體驗/報名</a>
+      <a class="more-button" href="index.html#contact" data-i18n="nav.contact">聯絡我們</a>
     </div>
   </main>
 
@@ -163,13 +173,14 @@
           <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" />
         </a>
       </div>
-      <p class="copyright">© 2025 Yi's Piano Studio.</p>
+      <p class="copyright" data-i18n="footer.copyright">© 2026 Yi's Piano Studio. All Rights Reserved.</p>
       <div class="contact-info">
-        <p>Email：contact@yipiano.example.com</p>
+        <p data-i18n="footer.address">台北市大安區信義路四段265號12巷11弄B1（信義安和站附近）</p>
       </div>
     </div>
   </footer>
 
+  <script src="i18n.js"></script>
   <script src="script.js"></script>
   <script>
     /* === 篩選 + 分頁：每頁固定 4 個 (保留在本頁面) === */

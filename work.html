@@ -48,11 +48,21 @@
          <span class="bar" aria-hidden="true"></span>
         </button>
         <ul class="menu" id="site-menu">
-          <li><a href="index.html#about">關於我們</a></li>
-          <li><a href="class.html">課程介紹</a></li>
-          <li><a href="index.html#teacher">師資介紹</a></li>
-          <li><a href="work.html">學員成果</a></li>
-          <li><a href="index.html#contact">聯絡/報名</a></li>
+          <li><a href="index.html#about" data-i18n="nav.about">關於我們</a></li>
+          <li><a href="class.html" data-i18n="nav.courses">課程介紹</a></li>
+          <li><a href="index.html#teacher" data-i18n="nav.teachers">師資介紹</a></li>
+          <li><a href="work.html" data-i18n="nav.works">學員成果</a></li>
+          <li><a href="index.html#contact" data-i18n="nav.contact">聯絡/報名</a></li>
+          <li><a href="booking.html" class="booking-link" data-i18n="nav.booking">線上預約</a></li>
+          <li class="lang-item">
+            <div class="lang-selector">
+              <select class="lang-select" aria-label="Language Selector">
+                <option value="zh">繁體中文</option>
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
+              </select>
+            </div>
+          </li>
         </ul>
       </nav>
     </div>
@@ -60,50 +70,33 @@
 
   <main class="container">
     <section class="section" id="works-page">
-      <h2>學員成果</h2>
-      <p>
+      <h2 data-i18n="work.hero_title">學員成果</h2>
+      <p data-i18n="work.hero_desc">
         這裡紀錄了 Yi's Piano Studio 學員們的練習日常、檢定合格證書、舞台演出與發表會照片。<br/>
         每一張照片都是努力累積的成果，也是我們最珍惜的回憶。
       </p>
 
       <!-- 照片牆：沿用原本 .gallery 樣式 -->
       <div class="gallery">
-        <!-- 你可以依照自己資料夾路徑替換下列圖片 -->
-
         <!-- 檢定／證書 -->
-        <a href="img/works/cert_01.jpg" class="lightbox-link">
-          <img src="img/works/cert_01.jpg" alt="學員檢定合格證書">
+        <a href="student/合格檢定.jpg" class="lightbox-link">
+          <img src="student/合格檢定.jpg" alt="學員檢定合格證書">
         </a>
-        <a href="img/works/cert_02.jpg" class="lightbox-link">
-          <img src="img/works/cert_02.jpg" alt="學員檢定通過紀錄">
+        <a href="student/student1.jpg" class="lightbox-link">
+          <img src="student/student1.jpg" alt="學員演奏與成果 1">
         </a>
 
         <!-- 舞台演出 -->
-        <a href="img/works/stage_01.jpg" class="lightbox-link">
-          <img src="img/works/stage_01.jpg" alt="學員舞台演出照片 1">
+        <a href="student/student2.jpg" class="lightbox-link">
+          <img src="student/student2.jpg" alt="學員舞台演出照片 2">
         </a>
-        <a href="img/works/stage_02.jpg" class="lightbox-link">
-          <img src="img/works/stage_02.jpg" alt="學員舞台演出照片 2">
+        <a href="student/student3.jpg" class="lightbox-link">
+          <img src="student/student3.jpg" alt="學員舞台演出照片 3">
         </a>
-
-        <!-- 日常練習／工作室生活 -->
-        <a href="img/works/daily_01.jpg" class="lightbox-link">
-          <img src="img/works/daily_01.jpg" alt="學員上課練習照片">
-        </a>
-        <a href="img/works/daily_02.jpg" class="lightbox-link">
-          <img src="img/works/daily_02.jpg" alt="教室練習日常照片">
-        </a>
-
-        <!-- 想再加就繼續複製這個區塊 -->
-        <!--
-        <a href="img/works/xxx.jpg" class="lightbox-link">
-          <img src="img/works/xxx.jpg" alt="說明文字">
-        </a>
-        -->
       </div>
 
       <div class="more-center" style="margin-top: 24px;">
-         <a class="form-button" href="https://forms.gle/7nYWPPvNrmqvfxt59" target="_blank" rel="noopener">預約體驗/報名</a>
+         <a class="form-button" href="booking.html" data-i18n="courses.book_btn">預約體驗/報名</a>
       </div>
     </section>
   </main>
@@ -122,9 +115,9 @@
           <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" />
         </a>
       </div>
-      <p class="copyright">© 2025 Yi's Piano Studio.</p>
+      <p class="copyright" data-i18n="footer.copyright">© 2026 Yi's Piano Studio. All Rights Reserved.</p>
       <div class="contact-info">
-        <p>Email：rabbit41120@gmail.com</p>
+        <p data-i18n="footer.address">台北市大安區信義路四段265號12巷11弄B1（信義安和站附近）</p>
       </div>
     </div>
   </footer>
@@ -134,9 +127,7 @@
     <img src="" alt="放大圖片" id="lightbox-img" />
   </div>
 
+  <script src="i18n.js"></script>
   <script src="script.js"></script>
-  <script>
-    // Lightbox, Menu, Header Shrink moved to script.js
-  </script>
 </body>
 </html>

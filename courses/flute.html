@@ -32,11 +32,21 @@
          <span class="bar" aria-hidden="true"></span>
         </button>
         <ul class="menu" id="site-menu">
-          <li><a href="../index.html#about">關於我們</a></li>
-          <li><a href="../class.html">課程介紹</a></li>
-          <li><a href="../index.html#teacher">師資介紹</a></li>
-          <li><a href="../work.html">學員成果</a></li>
-          <li><a href="../index.html#contact">聯絡/報名</a></li>
+          <li><a href="../index.html#about" data-i18n="nav.about">關於我們</a></li>
+          <li><a href="../class.html" data-i18n="nav.courses">課程介紹</a></li>
+          <li><a href="../index.html#teacher" data-i18n="nav.teachers">師資介紹</a></li>
+          <li><a href="../work.html" data-i18n="nav.works">學員成果</a></li>
+          <li><a href="../index.html#contact" data-i18n="nav.contact">聯絡/報名</a></li>
+          <li><a href="../booking.html" class="booking-link" data-i18n="nav.booking">線上預約</a></li>
+          <li class="lang-item">
+            <div class="lang-selector">
+              <select class="lang-select" aria-label="Language Selector">
+                <option value="zh">繁體中文</option>
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
+              </select>
+            </div>
+          </li>
         </ul>
       </nav>
     </div>
@@ -45,7 +55,7 @@
   <main class="container">
     <section class="section">
       <div class="page-hero">
-        <h1>長笛課程（初學/進階）</h1>
+        <h1 data-i18n="courses.flute_beginner_title">長笛課程（初學/進階）</h1>
       </div>
       
       <div style="text-align: center; margin-bottom: 30px;">
@@ -54,7 +64,7 @@
 
       <h2>課程特色</h2>
       <p>
-        長笛優雅的音色令人著迷，正確的氣息運用是吹奏好聽音色的關鍵。
+        長笛優律的音色令人著迷，正確的氣息運用是吹奏好聽音色的關鍵。
       </p>
       <ul>
         <li><strong>基礎呼吸與口型：</strong>建立正確的腹式呼吸與吹奏口型，讓氣息穩定持久。</li>
@@ -67,18 +77,19 @@
       <p>兒童（建議 7 歲以上，視身高而定）至成人。無音樂基礎可。</p>
 
       <div class="more-center" style="margin-top: 40px;">
-        <a class="form-button" href="https://forms.gle/7nYWPPvNrmqvfxt59" target="_blank" rel="noopener">預約體驗／報名</a>
-        <a class="more-button" href="../class.html">返回課程總覽</a>
+        <a class="form-button" href="../booking.html" data-i18n="courses.book_btn">預約體驗／報名</a>
+        <a class="more-button" href="../class.html" data-i18n="btn.back">返回課程總覽</a>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="footer-content">
-      <p class="copyright">© 2025 Yi's Piano Studio.</p>
+      <p class="copyright" data-i18n="footer.copyright">© 2026 Yi's Piano Studio. All Rights Reserved.</p>
     </div>
   </footer>
 
+  <script src="../i18n.js"></script>
   <script src="../script.js"></script>
 </body>
 </html>

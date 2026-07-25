@@ -1,0 +1,684 @@
+/* === 預約系統專屬樣式 === */
+
+:root {
+  --booking-bg: #fdfcff;
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(201, 180, 232, 0.3);
+  --glass-shadow: 0 8px 32px 0 rgba(185, 157, 224, 0.08);
+  --success-color: #52c41a;
+  --pending-color: #faad14;
+  --danger-color: #ff4d4f;
+  --dark-purple: #7a5cba;
+}
+
+body.booking-body {
+  background: linear-gradient(135deg, #fbfaff 0%, #f3effa 100%);
+  min-height: 100vh;
+}
+
+/* 預約版面容器 */
+.booking-container {
+  max-width: 860px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* Glassmorphism 卡片基礎 */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: var(--glass-shadow);
+  padding: 30px;
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  box-shadow: 0 12px 40px 0 rgba(185, 157, 224, 0.12);
+}
+
+/* === 註冊登入區塊 === */
+.auth-wrapper {
+  max-width: 420px;
+  margin: 60px auto;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.auth-header h2 {
+  font-family: "Noto Serif TC", serif;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin: 0 0 8px 0;
+}
+
+.auth-header p {
+  color: #777;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* 輸入框樣式 */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #4a4a4a;
+  margin-bottom: 8px;
+}
+
+.form-group input, 
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid #dcd1f0;
+  background: rgba(255, 255, 255, 0.9);
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #333;
+  transition: all 0.25s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--brand-main-dark);
+  box-shadow: 0 0 0 3px rgba(201, 180, 232, 0.35);
+  background: #ffffff;
+}
+
+/* 登入按鈕 */
+.btn-primary {
+  width: 100%;
+  background: linear-gradient(135deg, var(--brand-main) 0%, var(--brand-main-dark) 100%);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(201, 180, 232, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(185, 157, 224, 0.6);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* 切換模式連結 */
+.auth-toggle {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.auth-toggle a {
+  color: var(--dark-purple);
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+.auth-toggle a:hover {
+  text-decoration: underline;
+}
+
+/* === 會員大廳儀表板 === */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: 20px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.user-info h2 {
+  font-family: "Noto Serif TC", serif;
+  font-size: 1.6rem;
+  margin: 0 0 4px 0;
+  color: #222;
+}
+
+.user-info p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.user-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-secondary {
+  background: white;
+  color: #555;
+  border: 1px solid #dcd1f0;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: #f7f5fc;
+  color: var(--dark-purple);
+  border-color: var(--brand-main);
+}
+
+/* 分頁選單 (Tabs) */
+.dashboard-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(201, 180, 232, 0.2);
+  padding-bottom: 8px;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  padding: 10px 16px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #777;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.25s ease;
+  font-family: inherit;
+}
+
+.tab-btn:hover {
+  color: var(--dark-purple);
+}
+
+.tab-btn.active {
+  color: var(--dark-purple);
+  font-weight: 600;
+}
+
+.tab-btn.active::after {
+  content: "";
+  position: absolute;
+  bottom: -9px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: var(--brand-main);
+  border-radius: 3px 3px 0 0;
+}
+
+/* 分頁內容面板 */
+.tab-panel {
+  display: none;
+  animation: fadeIn 0.4s ease;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === 線上預約表單 === */
+.booking-section-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.booking-section-title span.step-badge {
+  background: var(--brand-line);
+  color: var(--dark-purple);
+  font-size: 0.8rem;
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+/* 課程選擇卡片 */
+.course-selector-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.course-opt-card {
+  border: 1px solid #e5dbf7;
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.course-opt-card:hover {
+  border-color: var(--brand-main-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(185, 157, 224, 0.1);
+}
+
+.course-opt-card.selected {
+  border-color: var(--dark-purple);
+  background: #fbf9ff;
+  box-shadow: 0 4px 15px rgba(201, 180, 232, 0.2);
+}
+
+.course-opt-card h4 {
+  margin: 8px 0 4px 0;
+  font-size: 0.95rem;
+  color: #2c2c2c;
+}
+
+.course-opt-card p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.course-opt-card input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+/* 靜態課程圖標 */
+.course-icon {
+  font-size: 1.8rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* 時段選擇樣式 */
+.time-slots-container {
+  margin-top: 14px;
+}
+
+.time-slot-heading {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #666;
+  margin: 14px 0 8px 0;
+}
+
+.time-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.time-slot-card {
+  border: 1px solid #e5dbf7;
+  background: white;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #444;
+  transition: all 0.2s ease;
+}
+
+.time-slot-card:hover:not(.disabled) {
+  border-color: var(--brand-main);
+  background: #fbf9ff;
+  color: var(--dark-purple);
+}
+
+.time-slot-card.selected {
+  background: var(--brand-main);
+  border-color: var(--brand-main);
+  color: white;
+  box-shadow: 0 2px 8px rgba(201, 180, 232, 0.4);
+}
+
+.time-slot-card.disabled {
+  background: #f5f5f5;
+  border-color: #e8e8e8;
+  color: #ccc;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+/* === 我的預約列表 === */
+.bookings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #888;
+}
+
+.empty-state-icon {
+  font-size: 3rem;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.booking-item-card {
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.booking-item-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.booking-item-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: var(--brand-main);
+}
+
+.booking-item-card.confirmed::before {
+  background-color: var(--success-color);
+}
+
+.booking-item-card.pending::before {
+  background-color: var(--pending-color);
+}
+
+.booking-item-card.cancelled::before {
+  background-color: #d9d9d9;
+}
+
+.booking-item-details {
+  flex: 1;
+}
+
+.booking-item-meta {
+  display: flex;
+  gap: 12px;
+  font-size: 0.82rem;
+  color: #777;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.booking-item-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.booking-item-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+  margin: 0;
+}
+
+.booking-item-status-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+/* 狀態標籤 */
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.status-badge.confirmed {
+  background-color: #f6ffed;
+  color: var(--success-color);
+  border: 1px solid #b7eb8f;
+}
+
+.status-badge.pending {
+  background-color: #fffbe6;
+  color: var(--pending-color);
+  border: 1px solid #ffe58f;
+}
+
+.status-badge.cancelled {
+  background-color: #f5f5f5;
+  color: #888;
+  border: 1px solid #d9d9d9;
+}
+
+.btn-cancel {
+  background: white;
+  border: 1px solid #fcd2d2;
+  color: #f5222d;
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cancel:hover {
+  background: #fff1f0;
+  border-color: #ff4d4f;
+}
+
+/* === 教師審核面板 === */
+.admin-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.admin-filter {
+  display: flex;
+  gap: 8px;
+}
+
+.admin-filter select {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #dcd1f0;
+  font-size: 0.88rem;
+  outline: none;
+}
+
+.admin-filter select:focus {
+  border-color: var(--brand-main);
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #ece8f5;
+  border-radius: 12px;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+  background: white;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #f0ecf7;
+}
+
+.admin-table th {
+  background-color: #f9f8fc;
+  font-weight: 600;
+  color: #4a4a4a;
+}
+
+.admin-table tbody tr:hover {
+  background-color: #faf9ff;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-approve {
+  background-color: #f6ffed;
+  border: 1px solid #b7eb8f;
+  color: var(--success-color);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.btn-approve:hover {
+  background-color: var(--success-color);
+  color: white;
+  border-color: var(--success-color);
+}
+
+.btn-reject {
+  background-color: #fff1f0;
+  border: 1px solid #ffa39e;
+  color: var(--danger-color);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.btn-reject:hover {
+  background-color: var(--danger-color);
+  color: white;
+  border-color: var(--danger-color);
+}
+
+/* === 動態 Toast 通知 === */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toast {
+  background: #2c2c2c;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.toast-success {
+  background: #52c41a;
+}
+
+.toast-error {
+  background: #ff4d4f;
+}
+
+.toast-info {
+  background: var(--dark-purple);
+}
+
+/* RWD 微調 */
+@media (max-width: 576px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .booking-item-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .booking-item-status-actions {
+    align-items: flex-start;
+    width: 100%;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 10px;
+  }
+  .toast-container {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+  }
+  .toast {
+    width: 100%;
+    justify-content: center;
+  }
+}
