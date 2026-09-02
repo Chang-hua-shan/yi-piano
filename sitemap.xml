@@ -31,24 +31,4 @@
     <priority>0.7</priority>
   </url>
 
-  <url>
-    <loc>https://yispianostudio.com/courses/eurhythmics.html</loc>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://yispianostudio.com/courses/musictheory.html</loc>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://yispianostudio.com/courses/bootcamp.html</loc>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://yispianostudio.com/courses/accompaniment-stage.html</loc>
-    <priority>0.7</priority>
-  </url>
-
 </urlset>

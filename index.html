@@ -15,11 +15,11 @@
     />
 
     <!-- Favicon（放這裡 ✔） -->
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="icon" type="image/png" href="assets/favicons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicons/favicon.svg" />
+    <link rel="shortcut icon" href="assets/favicons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
 
     <!-- OG Meta（社群分享） -->
     <meta
@@ -32,7 +32,7 @@
     />
     <meta
       property="og:image"
-      content="https://yispianostudio.com/img/og-music.svg"
+      content="https://yispianostudio.com/assets/images/icons/og-music.svg"
     />
     <meta property="og:url" content="https://yispianostudio.com" />
 
@@ -42,7 +42,7 @@
       "@context": "https://schema.org",
       "@type": "MusicInstruction",
       "name": "Yi's Piano Studio",
-      "image": "https://yispianostudio.com/jpg/yipianologo.jpg",
+      "image": "https://yispianostudio.com/assets/images/photos/yipianologo.jpg",
       "@id": "https://yispianostudio.com/#studio",
       "url": "https://yispianostudio.com/",
       "address": {
@@ -81,7 +81,7 @@
     </script>
 
     <!-- CSS / Fonts（放最後） -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@500;700&family=Playfair+Display:wght@500;600&display=swap"
       rel="stylesheet"
@@ -107,7 +107,7 @@
           </button>
           <ul class="menu" id="site-menu">
             <li><a href="index.html#about" data-i18n="nav.about">關於我們</a></li>
-            <li><a href="class.html" data-i18n="nav.courses">課程介紹</a></li>
+            <li><a href="index.html#courses" data-i18n="nav.courses">課程介紹</a></li>
             <li><a href="index.html#teacher" data-i18n="nav.teachers">師資介紹</a></li>
             <li><a href="work.html" data-i18n="nav.works">學員成果</a></li>
             <li><a href="index.html#contact" data-i18n="nav.contact">聯絡/報名</a></li>
@@ -132,7 +132,7 @@
         <div class="hero-inner">
           <div class="hero-logo-wrap">
             <img
-              src="jpg/yipianologo.jpg"
+              src="assets/images/photos/yipianologo.jpg"
               alt="Yi's Piano Studio 標誌"
               class="hero-logo"
               loading="eager"
@@ -176,7 +176,7 @@
         <div class="course-grid">
           <a href="courses/piano-kids.html" class="course-card">
             <img
-              src="img/course-piano-kids.svg"
+              src="assets/images/icons/course-piano-kids.svg"
               alt="兒童鋼琴課程"
               loading="lazy"
               decoding="async"
@@ -187,7 +187,7 @@
 
           <a href="courses/piano-adult.html" class="course-card">
             <img
-              src="img/course-piano-adult.svg"
+              src="assets/images/icons/course-piano-adult.svg"
               alt="成人鋼琴課程"
               loading="lazy"
               decoding="async"
@@ -198,7 +198,7 @@
 
           <a href="courses/flute.html" class="course-card">
             <img
-              src="img/course-flute.svg"
+              src="assets/images/icons/course-flute.svg"
               alt="長笛課程"
               loading="lazy"
               decoding="async"
@@ -208,7 +208,7 @@
           </a>
           <a href="courses/flute.html" class="course-card">
             <img
-              src="img/course-flute.svg"
+              src="assets/images/icons/course-flute.svg"
               alt="長笛課程"
               loading="lazy"
               decoding="async"
@@ -219,7 +219,6 @@
         </div>
 
         <div class="more-center">
-          <a class="more-button" href="class.html" data-i18n="courses.more_btn">查看更多課程</a>
           <a
             class="form-button"
             href="booking.html"
@@ -235,7 +234,7 @@
 
         <div class="teacher-photo-wrap">
           <img
-            src="jpg/teacher.jpg"
+            src="assets/images/photos/teacher.jpg"
             alt="教師照片"
             class="teacher-photo"
             loading="lazy"
@@ -262,36 +261,36 @@
 
           <!-- ✅ 注意：這裡只有 id，不要加 .gallery（避免被你原本 .gallery grid/flex 影響） -->
           <div class="gallery--carousel" id="studentGallery">
-            <a href="student/合格檢定.jpg" class="lightbox-link">
+            <a href="assets/images/student/合格檢定.jpg" class="lightbox-link">
               <img
-                src="student/合格檢定.jpg"
+                src="assets/images/student/合格檢定.jpg"
                 alt="合格檢定"
                 loading="lazy"
                 decoding="async"
               />
             </a>
 
-            <a href="student/student1.jpg" class="lightbox-link">
+            <a href="assets/images/student/student1.jpg" class="lightbox-link">
               <img
-                src="student/student1.jpg"
+                src="assets/images/student/student1.jpg"
                 alt="student1"
                 loading="lazy"
                 decoding="async"
               />
             </a>
 
-            <a href="student/student2.jpg" class="lightbox-link">
+            <a href="assets/images/student/student2.jpg" class="lightbox-link">
               <img
-                src="student/student2.jpg"
+                src="assets/images/student/student2.jpg"
                 alt="student2"
                 loading="lazy"
                 decoding="async"
               />
             </a>
 
-            <a href="student/student3.jpg" class="lightbox-link">
+            <a href="assets/images/student/student3.jpg" class="lightbox-link">
               <img
-                src="student/student3.jpg"
+                src="assets/images/student/student3.jpg"
                 alt="student3"
                 loading="lazy"
                 decoding="async"
@@ -376,8 +375,8 @@
     </div>
 
     <!-- JS：i18n + Lightbox + 漢堡選單 + 輪播箭頭/計數 -->
-    <script src="i18n.js"></script>
-    <script src="script.js"></script>
+    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/script.js"></script>
     <script>
       /* === 輪播（箭頭 + 計數器） === */
       // Only on index.html, so keep inline or extract to another file if needed. Keeping inline for now as it's specific.

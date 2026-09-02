@@ -8,20 +8,20 @@
   <meta name="description" content="Yi's Piano Studio 課程介紹：提供台北大安區與信義區兒童鋼琴、成人鋼琴、長笛初學與進階、伴奏/舞台臨場訓練，小班制與一對一精緻指導。" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="shortcut icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="icon" type="image/png" href="assets/favicons/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicons/favicon.svg" />
+  <link rel="shortcut icon" href="assets/favicons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
 
   <!-- CSS / 字體 -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@500;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
 
   <!-- OG Meta（請替換為你的實際網址與圖片） -->
   <meta property="og:title" content="課程介紹｜Yi's Piano Studio" />
   <meta property="og:description" content="台北大安區與信義區鋼琴教學與長笛課程，包含一對一指導、檢定與舞台訓練。" />
-  <meta property="og:image" content="https://yispianostudio.com/img/og-music.svg" />
+  <meta property="og:image" content="https://yispianostudio.com/assets/images/icons/og-music.svg" />
   <meta property="og:url" content="https://yispianostudio.com/class.html" />
 
   <!-- JSON-LD 結構化資料 -->
@@ -56,7 +56,7 @@
         </button>
         <ul class="menu" id="site-menu">
           <li><a href="index.html#about" data-i18n="nav.about">關於我們</a></li>
-          <li><a href="class.html" data-i18n="nav.courses">課程介紹</a></li>
+          <li><a href="index.html#courses" data-i18n="nav.courses">課程介紹</a></li>
           <li><a href="index.html#teacher" data-i18n="nav.teachers">師資介紹</a></li>
           <li><a href="work.html" data-i18n="nav.works">學員成果</a></li>
           <li><a href="index.html#contact" data-i18n="nav.contact">聯絡/報名</a></li>
@@ -88,60 +88,37 @@
       <button class="filter-btn active" data-filter="all" data-i18n="class.filter_all">全部</button>
       <button class="filter-btn" data-filter="piano" data-i18n="class.filter_piano">鋼琴</button>
       <button class="filter-btn" data-filter="flute" data-i18n="class.filter_flute">長笛</button>
-      <button class="filter-btn" data-filter="stage" data-i18n="class.filter_stage">伴奏/舞台</button>
-      <button class="filter-btn" data-filter="exam" data-i18n="class.filter_exam">檢定/比賽</button>
     </div>
 
     <!-- 課程清單 -->
     <section class="section" id="class">
       <div class="course-grid" id="courseGrid">
-        <a href="courses/piano-kids.html" class="course-card" data-category="piano exam">
-          <img src="img/course-piano-kids.svg" alt="兒童鋼琴課" loading="lazy" decoding="async" />
+        <a href="courses/piano-kids.html" class="course-card" data-category="piano">
+          <img src="assets/images/icons/course-piano-kids.svg" alt="兒童鋼琴課" loading="lazy" decoding="async" />
           <h3 data-i18n="courses.piano_kids_title">兒童鋼琴課（4–12 歲）</h3>
           <p data-i18n="courses.piano_kids_desc">打好基礎，從遊戲中培養樂感與專注力。</p>
           <span class="badge" data-i18n="class.badge_custom">一對一/客製化進度</span>
         </a>
 
-        <a href="courses/piano-adult.html" class="course-card" data-category="piano exam">
-          <img src="img/course-piano-adult.svg" alt="成人鋼琴課" loading="lazy" decoding="async" />
+        <a href="courses/piano-adult.html" class="course-card" data-category="piano">
+          <img src="assets/images/icons/course-piano-adult.svg" alt="成人鋼琴課" loading="lazy" decoding="async" />
           <h3 data-i18n="courses.piano_adult_title">成人鋼琴課（13+）</h3>
           <p data-i18n="courses.piano_adult_desc">依興趣或目標客製化，紓壓、表演、檢定都適合。</p>
           <span class="badge" data-i18n="class.badge_custom">一對一/客製化進度</span>
         </a>
 
-        <a href="courses/flute.html" class="course-card" data-category="flute stage exam">
-          <img src="img/course-flute.svg" alt="長笛課程" loading="lazy" decoding="async" />
-          <h3 data-i18n="courses.flute_beginner_title">長笛課程（初學/進階）</h3>
+        <a href="courses/flute.html" class="course-card" data-category="flute">
+          <img src="assets/images/icons/course-flute.svg" alt="長笛課程（初學）" loading="lazy" decoding="async" />
+          <h3 data-i18n="courses.flute_beginner_title">長笛課程（初學）</h3>
           <p data-i18n="courses.flute_beginner_desc">氣息與發音、音準音色、重奏合奏與舞台表現。</p>
           <span class="badge" data-i18n="class.badge_group">個別/重奏</span>
         </a>
 
-        <a href="courses/accompaniment-stage.html" class="course-card" data-category="stage">
-          <img src="img/course-stage.svg" alt="伴奏與舞台訓練" loading="lazy" decoding="async" />
-          <h3>伴奏與舞台訓練</h3>
-          <p>排練策略、合作默契與台風，強化整體演出力。</p>
-          <span class="badge">演出實戰</span>
-        </a>
-
-        <a href="courses/musictheory.html" class="course-card" data-category="exam piano flute">
-          <img src="img/course-theory.svg" alt="視唱聽寫與樂理" loading="lazy" decoding="async" />
-          <h3>視唱聽寫｜樂理基礎</h3>
-          <p>節奏/旋律訓練、和聲與曲式，檢定比賽加分。</p>
-          <span class="badge">檢定輔導</span>
-        </a>
-
-        <a href="courses/bootcamp.html" class="course-card" data-category="piano flute exam">
-          <img src="img/course-bootcamp.svg" alt="短期衝刺課" loading="lazy" decoding="async" />
-          <h3>短期衝刺｜密集特訓</h3>
-          <p>演出前暖身、檢定衝刺、指定曲目快攻。</p>
-          <span class="badge">短期方案</span>
-        </a>
-
-        <a href="courses/eurhythmics.html" class="course-card" data-category="piano">
-          <img src="img/course-eurhythmics.svg" alt="兒童音樂律動" loading="lazy" decoding="async" />
-          <h3>兒童音樂律動</h3>
-          <p>用律動與遊戲建立節奏感與專注力的根基。</p>
-          <span class="badge">4–7 歲</span>
+        <a href="courses/flute.html" class="course-card" data-category="flute">
+          <img src="assets/images/icons/course-flute.svg" alt="長笛課程（進階）" loading="lazy" decoding="async" />
+          <h3 data-i18n="courses.flute_advanced_title">長笛課程（進階）</h3>
+          <p data-i18n="courses.flute_advanced_desc">口型氣息、音色控制、合奏協作，建立穩定演奏力。</p>
+          <span class="badge" data-i18n="class.badge_group">個別/重奏</span>
         </a>
       </div>
 
@@ -180,8 +157,8 @@
     </div>
   </footer>
 
-  <script src="i18n.js"></script>
-  <script src="script.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/script.js"></script>
   <script>
     /* === 篩選 + 分頁：每頁固定 4 個 (保留在本頁面) === */
     // Note: This logic is specific to class.html

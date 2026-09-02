@@ -4,14 +4,11 @@ courses = [
     ("course-piano-kids", "Children Piano", "#FF9A9E", "#FECFEF"),
     ("course-piano-adult", "Adult Piano", "#a18cd1", "#fbc2eb"),
     ("course-flute", "Flute Class", "#84fab0", "#8fd3f4"),
-    ("course-stage", "Stage Training", "#fccb90", "#d57eeb"),
-    ("course-theory", "Music Theory", "#e0c3fc", "#8ec5fc"),
-    ("course-bootcamp", "Bootcamp", "#fa709a", "#fee140"),
-    ("course-eurhythmics", "Eurhythmics", "#ffecd2", "#fcb69f"),
     ("og-music", "Yi's Piano Studio", "#c471ed", "#f64f59"),
 ]
 
-os.makedirs("img", exist_ok=True)
+out_dir = os.path.join(os.path.dirname(__file__), "../assets/images/icons")
+os.makedirs(out_dir, exist_ok=True)
 
 svg_template = """<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
   <defs>
@@ -25,6 +22,7 @@ svg_template = """<svg width="800" height="600" xmlns="http://www.w3.org/2000/sv
 </svg>"""
 
 for filename, text, c1, c2 in courses:
-    with open(f"img/{filename}.svg", "w") as f:
+    filepath = os.path.join(out_dir, f"{filename}.svg")
+    with open(filepath, "w") as f:
         f.write(svg_template.format(text=text, color1=c1, color2=c2))
-    print(f"Generated img/{filename}.svg")
+    print(f"Generated {filepath}")
